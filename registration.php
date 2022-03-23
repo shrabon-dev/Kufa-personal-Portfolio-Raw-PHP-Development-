@@ -47,43 +47,46 @@
             <div class="logo">
                 <a href="index.html">Neptune</a>
             </div>
-            <p class="auth-description">Please enter your credentials to create an account.<br>Already have an account? <a href="sign-in.html">Sign In</a></p>
+            <p class="auth-description">Please enter your credentials to create an account.<br>Already have an account? <a href="login.php">Login</a></p>
             <form action="reg_func.php" method="post">
             <div class="auth-credentials m-b-xxl">
                 <label for="signUpUsername" class="form-label">Name</label>
-                <input type="text" class="form-control  <?php if(isset($_SESSION['name__erorr'])){echo "is-invalid";}?>" id="signUpUsername" aria-describedby="signUpUsername" placeholder="Enter Name" name="name">
+                <input type="text" class="form-control  <?=(isset($_SESSION['name__erorr']))? "is-invalid":'';?>" id="signUpUsername" aria-describedby="signUpUsername" placeholder="Enter Name" name="name" value="<?=(isset($_SESSION['name__show']))? $_SESSION['name__show'] : ''?>">
 
                 <?php   
                 if(isset($_SESSION['name__erorr'])){
                 echo "<span>". $_SESSION['name__erorr'] ."</span>";
-                    unset($_SESSION['name__erorr']);
                 }
                 ?>
 
                 <label for="signUpEmail" class="form-label">Email address</label>
-                <input type="email" class="form-control <?php if(isset($_SESSION['email__erorr'])){echo "is-invalid";}?>" id="signUpEmail" aria-describedby="signUpEmail" placeholder="example@neptune.com" name="email">
+                <input type="text" class="form-control <?php if(isset($_SESSION['email__erorr'])){echo "is-invalid";}?>" id="signUpEmail" aria-describedby="signUpEmail" placeholder="example@neptune.com" name="email" value="<?=(isset($_SESSION['email__show']))? $_SESSION['email__show'] : ''?>">
                 <?php   
                 if(isset($_SESSION['email__erorr'])){
                 echo "<span>". $_SESSION['email__erorr'] ."</span>";
-                    unset($_SESSION['email__erorr']);
                 }
                 ?>
                 <label for="signUpPassword" class="form-label">Password</label>
-                <input type="password" class="form-control  <?php if(isset($_SESSION['password__erorr'])){echo "is-invalid";}?>" id="signUpPassword" aria-describedby="signUpPassword" placeholder="Enter Password" name="password"> 
-                <?php   
+                <input id="show__pass2" type="password" class="form-control  <?=(isset($_SESSION['password__erorr']))? "is-invalid":'';?>" id="signUpPassword" aria-describedby="signUpPassword" placeholder="Enter Password" name="password" value="<?=(isset($_SESSION['pass__show']))? $_SESSION['pass__show'] : ''?>"> 
+                <span class="span"><input type="checkbox" onclick="myFunction2()">Show Password <br></span>
+               <?php  
                 if(isset($_SESSION['password__erorr'])){
                 echo "<span>". $_SESSION['password__erorr'] ."</span>";
-                    unset($_SESSION['password__erorr']);
                 }
                 ?>
 
                 <label for="signUpPassword" class="form-label">Confirm Password</label>
-                <input type="password" class="form-control <?php if(isset($_SESSION['confirm_password__erorr'])){echo "is-invalid";}?>" id="signUpPassword" aria-describedby="signUpPassword" placeholder="Confirm Password" name="confirm_password">
+                <input id="show__pass" type="password" class="form-control <?=(isset($_SESSION['confirm_password__erorr']))? "is-invalid":'';?>" id="signUpPassword" aria-describedby="signUpPassword" placeholder="Confirm Password" name="confirm_password" value="<?=(isset($_SESSION['conf__pass__show']))? $_SESSION['conf__pass__show'] :''?>">
+
+
+                       <!-- An element to toggle between password visibility -->
+                       <span class="span"> <input type="checkbox" onclick="myFunction()">Show Password</span>
+
               <?php  if(isset($_SESSION['confirm_password__erorr'])){
                 echo "<span>". $_SESSION['confirm_password__erorr'] ."</span>";
-                    unset($_SESSION['confirm_password__erorr']);
                 }
                 ?>
+
             </div>
 
             <div class="auth-submit">
@@ -102,5 +105,28 @@
     <script src="assets/plugins/pace/pace.min.js"></script>
     <script src="assets/js/main.min.js"></script>
     <script src="assets/js/custom.js"></script>
+    
+    <script>    
+    function myFunction() {
+    var x = document.getElementById("show__pass");
+    if (x.type === "password") {
+    x.type = "text";
+    } else {
+    x.type = "password";
+    }
+      }
+      function myFunction2() {
+    var x = document.getElementById("show__pass2");
+    if (x.type === "password") {
+    x.type = "text";
+    } else {
+    x.type = "password";
+    }
+      }
+</script>
+
+
 </body>
 </html>
+
+<?php session_unset(); ?>

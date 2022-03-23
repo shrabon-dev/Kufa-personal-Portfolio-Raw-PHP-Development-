@@ -1,0 +1,1 @@
+<?=(isset($_SESSION['name__show']))? $_SESSION['name__show'] : ''?>

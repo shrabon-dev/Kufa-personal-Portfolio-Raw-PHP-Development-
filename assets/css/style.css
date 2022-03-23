@@ -4,3 +4,8 @@ span{
     font-weight: 300;
     font-size: 14px;
 }
+.span{
+    color: rgba(139, 139, 139, 0.705) !important;
+    font-weight: 300;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
