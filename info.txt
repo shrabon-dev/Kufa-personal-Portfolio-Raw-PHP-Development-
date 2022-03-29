@@ -1,1 +1,43 @@
 <?=(isset($_SESSION['name__show']))? $_SESSION['name__show'] : ''?>
+
+
+
+
+
+            $isTrue = false;
+
+             if($lg_email == true){
+             
+              
+             }else{
+                echo "Please, fill the email";
+             }
+
+             if($lg_password == true){
+                $isTrue= true;
+            
+
+            }else{
+            echo "Please, fill the password";
+            }
+            if($isTrue == true){
+                if( $data_arry['user_email'] == $lg_email && $data_arry['user_password']==$lg_password){
+                    echo "Success";
+                  }else{
+                   echo "Sorry, your email or password wrong";
+                   }
+            }
+
+
+
+where user_email='$lg_email' and user_password='$lg_password'
+
+nigyvyjiv@mailinator.com
+
+
+
+
+
+
+
+

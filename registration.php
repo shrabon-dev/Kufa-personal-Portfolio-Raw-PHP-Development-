@@ -18,6 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/plugins/perfectscroll/perfect-scrollbar.css" rel="stylesheet">
     <link href="assets/plugins/pace/pace.css" rel="stylesheet">
@@ -45,7 +46,7 @@
         </div>
         <div class="app-auth-container">
             <div class="logo">
-                <a href="index.html">Neptune</a>
+                <a href="#">Neptune</a>
             </div>
             <p class="auth-description">Please enter your credentials to create an account.<br>Already have an account? <a href="login.php">Login</a></p>
             <form action="reg_func.php" method="post">
@@ -67,8 +68,9 @@
                 }
                 ?>
                 <label for="signUpPassword" class="form-label">Password</label>
-                <input id="show__pass2" type="password" class="form-control  <?=(isset($_SESSION['password__erorr']))? "is-invalid":'';?>" id="signUpPassword" aria-describedby="signUpPassword" placeholder="Enter Password" name="password" value="<?=(isset($_SESSION['pass__show']))? $_SESSION['pass__show'] : ''?>"> 
-                <span class="span"><input type="checkbox" onclick="myFunction2()">Show Password <br></span>
+                <input id="show__pass" type="password" class="form-control  <?=(isset($_SESSION['password__erorr']))? "is-invalid":'';?>" id="signUpPassword" aria-describedby="signUpPassword" placeholder="Enter Password" name="password" value="<?=(isset($_SESSION['pass__show']))? $_SESSION['pass__show'] : ''?>"> 
+                   <!--    An element to toggle between password visibility -->
+                        <span class="span mb-3"> <input type="checkbox" onclick="myFunction()">Show Password</span>
                <?php  
                 if(isset($_SESSION['password__erorr'])){
                 echo "<span>". $_SESSION['password__erorr'] ."</span>";
@@ -76,11 +78,8 @@
                 ?>
 
                 <label for="signUpPassword" class="form-label">Confirm Password</label>
-                <input id="show__pass" type="password" class="form-control <?=(isset($_SESSION['confirm_password__erorr']))? "is-invalid":'';?>" id="signUpPassword" aria-describedby="signUpPassword" placeholder="Confirm Password" name="confirm_password" value="<?=(isset($_SESSION['conf__pass__show']))? $_SESSION['conf__pass__show'] :''?>">
+                <input type="password" class="form-control <?=(isset($_SESSION['confirm_password__erorr']))? "is-invalid":'';?>" id="signUpPassword" aria-describedby="signUpPassword" placeholder="Confirm Password" name="confirm_password" value="<?=(isset($_SESSION['conf__pass__show']))? $_SESSION['conf__pass__show'] :''?>">
 
-
-                       <!-- An element to toggle between password visibility -->
-                       <span class="span"> <input type="checkbox" onclick="myFunction()">Show Password</span>
 
               <?php  if(isset($_SESSION['confirm_password__erorr'])){
                 echo "<span>". $_SESSION['confirm_password__erorr'] ."</span>";
@@ -115,15 +114,7 @@
     x.type = "password";
     }
       }
-      function myFunction2() {
-    var x = document.getElementById("show__pass2");
-    if (x.type === "password") {
-    x.type = "text";
-    } else {
-    x.type = "password";
-    }
-      }
-</script>
+    </script>
 
 
 </body>

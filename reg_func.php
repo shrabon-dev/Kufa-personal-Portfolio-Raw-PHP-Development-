@@ -37,12 +37,11 @@ if($email){
    $isFalse = true;
    $_SESSION['email__erorr'] = "Please, give your email.";
 }
+
 if($password){
    
-  $num = preg_match("/[0-9]/",$password);
-  $char = preg_match("/[a-z]/i",$password);
-  $spchar = preg_match("/[^\w]/",$password);
-  $pass_valid = $num || $char || $spchar;
+   $pass_valid = preg_match("/[\d]|[a-z]|[^<>]/i",$password);
+  
 
     if(strlen($password) < 8 ){
       $isFalse = true;
@@ -55,15 +54,12 @@ if($password){
          echo $pass_valid . "<br>". $password;
       }
     }
-
-   
-   
-
-   $_SESSION['pass__show'] =$password;
+$_SESSION['pass__show'] =$password;
 }elseif(!$password){
    $isFalse = true;
    $_SESSION['password__erorr'] = "Please, give your password";
 }
+
 
 if(!$confirm_password || $password !== $confirm_password){
    $isFalse = true;
@@ -76,7 +72,22 @@ if(!$confirm_password || $password !== $confirm_password){
 
 if($isFalse){
    header("location: registration.php");
+}else{
+// Mysql connection
+
+   $conn = mysqli_connect('localhost','root','','cms');
+    $encrypt_password = md5($password);
+   $insert_data = "INSERT INTO users_info(user_name,user_email,user_password) VALUES('$name','$email','$encrypt_password')";
+   
+   $query =  mysqli_query($conn,$insert_data);
+
+   $_SESSION['registration_statuse'] = "Your registration is Successfull";
+   $_SESSION['login_email_show'] = "$email";
+    
+   header("location: login.php");
 }
 
-
 ?>
+
+
+

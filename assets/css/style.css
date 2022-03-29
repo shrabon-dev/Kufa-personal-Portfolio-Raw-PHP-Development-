@@ -9,3 +9,13 @@ span{
     font-weight: 300;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+.d-block{
+   font-size: 24px;
+}
+.z_index{
+    z-index: 1010 !important;
+}
+.eye{
+    margin-top: -120px; 
+    cursor: pointer;
+}
