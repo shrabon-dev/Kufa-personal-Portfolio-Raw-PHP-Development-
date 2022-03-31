@@ -14,9 +14,8 @@
             $data_select = "SELECT COUNT(*) AS 'result' FROM users_info WHERE user_email='$lg_email' AND user_password='$encpt_lg_pass'";
             $query = mysqli_query($conn,$data_select);
             $arry = mysqli_fetch_assoc($query);
-            //   print_r($arry['user_password'] );
-            //   die();
-
+             
+        
          
              if($lg_email){
                  $isTrue = true;
@@ -35,14 +34,26 @@
                 $_SESSION['lg_pass_error'] = "Please fill the password";
                 header("location: login.php");
             }
+        
 
              if($isTrue == true){
                    
+                $admin_user_select = "SELECT user_id,user_name FROM users_info WHERE user_email='$lg_email'";
+                $admin_user_query = mysqli_query($conn,$admin_user_select);
+                $admin_user_arry = mysqli_fetch_assoc($admin_user_query);
+                $admin_user_name = $admin_user_arry['user_name'];
+                $admin_user_id = $admin_user_arry['user_id'];
+    
+                // print_r($admin_user_arry);
+                // die();
               
                 if($arry['result'] == 1){
+                    $_SESSION['admin_user_name'] = "$admin_user_name";
+                    $_SESSION['admin_user_email'] = "$lg_email";
+                    $_SESSION['admin_user_id'] = "$admin_user_id";
 
                     $_SESSION['login_statuse'] = "Hurrah!! Login successfull";
-                    header("location: adminDashbord.php");
+                    header("location: beckend/adminDashbord.php");
                 }else{
 
                     $_SESSION['login_statuse_error'] = "Sorry, your email or password is wrong";

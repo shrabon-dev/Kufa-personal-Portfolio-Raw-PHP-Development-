@@ -30,9 +30,6 @@
 
 
 
-where user_email='$lg_email' and user_password='$lg_password'
-
-nigyvyjiv@mailinator.com
 
 
 
