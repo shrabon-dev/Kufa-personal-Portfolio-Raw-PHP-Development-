@@ -1,40 +1,16 @@
-<?=(isset($_SESSION['name__show']))? $_SESSION['name__show'] : ''?>
+        <form action="service_delete.php" method="POST">
+         <input type="hidden" name="id" value="<?= $service['id'] ?>" />
+         <td>
+                  <button type="submit" name="delete" class="btn btn-danger">Delete</button>
+         </td>
+		 </form>
+<?php
+// print_r($_POST);
+$id = $_POST['id'];
+$db_connect = mysqli_connect('localhost', 'root', '', 'hw_7');
 
-
-
-
-
-            $isTrue = false;
-
-             if($lg_email == true){
-             
-              
-             }else{
-                echo "Please, fill the email";
-             }
-
-             if($lg_password == true){
-                $isTrue= true;
-            
-
-            }else{
-            echo "Please, fill the password";
-            }
-            if($isTrue == true){
-                if( $data_arry['user_email'] == $lg_email && $data_arry['user_password']==$lg_password){
-                    echo "Success";
-                  }else{
-                   echo "Sorry, your email or password wrong";
-                   }
-            }
-
-
-
-
-
-
-
-
-
-
-
+if (isset($_POST['delete'])) {
+    $db_data_delete_query = "DELETE FROM services WHERE id = $id";
+    mysqli_query($db_connect, $db_data_delete_query);
+    header("location: service_list.php");
+}

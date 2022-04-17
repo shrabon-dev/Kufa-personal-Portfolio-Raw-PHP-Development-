@@ -28,8 +28,7 @@
             if($lg_pass){
                 
                 $isTrue = true;
-
-                     
+      
             }else{
                 $_SESSION['lg_pass_error'] = "Please fill the password";
                 header("location: login.php");
@@ -48,6 +47,7 @@
                 // die();
               
                 if($arry['result'] == 1){
+    
                     $_SESSION['admin_user_name'] = "$admin_user_name";
                     $_SESSION['admin_user_email'] = "$lg_email";
                     $_SESSION['admin_user_id'] = "$admin_user_id";

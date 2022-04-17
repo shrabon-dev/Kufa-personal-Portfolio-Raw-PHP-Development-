@@ -67,6 +67,21 @@
                 echo "<span>". $_SESSION['email__erorr'] ."</span>";
                 }
                 ?>
+                <!-- phone number start -->
+
+
+                <label for="signUpEmail" class="form-label">Phone Number</label>
+                <input type="phone" class="form-control <?php if(isset($_SESSION['phone__erorr'])){echo "is-invalid";}?>"  placeholder="(+880) 123456795" name="phone" value="<?=(isset($_SESSION['number_show']))? $_SESSION['number_show'] : ''?>">
+               
+                <?php   
+                if(isset($_SESSION['phone__erorr'])){
+                echo "<span>". $_SESSION['phone__erorr'] ."</span>";
+                }
+                ?>
+         
+
+                <!-- phone number end -->
+
                 <label for="signUpPassword" class="form-label">Password</label>
                 <input id="show__pass" type="password" class="form-control  <?=(isset($_SESSION['password__erorr']))? "is-invalid":'';?>" id="signUpPassword" aria-describedby="signUpPassword" placeholder="Enter Password" name="password" value="<?=(isset($_SESSION['pass__show']))? $_SESSION['pass__show'] : ''?>"> 
                    <!--    An element to toggle between password visibility -->
@@ -81,7 +96,7 @@
                 <input type="password" class="form-control <?=(isset($_SESSION['confirm_password__erorr']))? "is-invalid":'';?>" id="signUpPassword" aria-describedby="signUpPassword" placeholder="Confirm Password" name="confirm_password" value="<?=(isset($_SESSION['conf__pass__show']))? $_SESSION['conf__pass__show'] :''?>">
 
 
-              <?php  if(isset($_SESSION['confirm_password__erorr'])){
+                <?php  if(isset($_SESSION['confirm_password__erorr'])){
                 echo "<span>". $_SESSION['confirm_password__erorr'] ."</span>";
                 }
                 ?>
@@ -91,6 +106,7 @@
             <div class="auth-submit">
                 <button type="submit" class="btn btn-primary" name="submit">Sign Up</button>
             </div>
+
            </form>
             <div class="divider"></div> 
             
