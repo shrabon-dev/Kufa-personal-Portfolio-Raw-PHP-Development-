@@ -33,7 +33,7 @@ $tab_page_title = "Neptune - Admin profile";
             <tr>
             <td><?=$i++?></td>
             <td><?=$service_list['service_title']?></td>
-            <td><?=$service_list['service_icon']?></td>
+            <td><i class="<?=$service_list['service_icon']?>"></i></td>
             <td><?=$service_list['service_description']?></td>
             <td>
                 
@@ -51,8 +51,7 @@ $tab_page_title = "Neptune - Admin profile";
             <td> 
 
             <a name="delete" class="btn btn-danger" href="../php_function/service_delete.php?id=<?=$service_list['service_id']?>">Delete</a>
-            <button name="edit" class="btn btn-primary" href="../beckend/service_list.php?id=<?=$service_list['service_id']?>">Edit</button>
-            <button name="change" class="btn btn-info" href="../beckend/service_list.php?id=<?=$service_list['service_id']?>">Cange Status</button>
+            <a name="edit" class="btn btn-primary" href="../php_function/service_edit.php?id=<?=$service_list['service_id']?>">Edit</a>
 
             </td>
 

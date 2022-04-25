@@ -26,8 +26,28 @@ $tab_page_title = "Neptune - Admin profile";
                                   <!--  -->
                                  <div>
                                  <label for="">Service Icon : </label>
-                                 <input type="text" name="service_icon">
+                                 <input class="set_icon" type="text" name="service_icon">
                                  </div>
+                                 <!-- php start -->
+                                 <?php
+                                 require_once "font_awesome.php";
+                                   
+                                 ?>
+                                 <!-- php end -->
+                                 <div class="card m-1" style="background-color:#dbdbdb; border-color:darkblue;">
+                                  
+                                   <div class="card-body">
+                                     <h4 class="card-title">Choose Your Icon</h4>
+                                     <div class="over_flow_hiden" style="overflow-y:scroll;height:180px;">
+                                     <?php foreach($fonts as $icon): ?>
+                                        <span class="badge badge-dark m-1 icon_slc_btn" id="<?=$icon?>">
+                                        <i class="fa-1x <?=$icon?>"></i>
+                                        </span>
+                                        <?php endforeach;?>
+                                        </div>
+                                   </div>
+                                 </div>
+                              
                                        <!--  -->
 
 
@@ -80,4 +100,28 @@ $tab_page_title = "Neptune - Admin profile";
                     <!-- /////////////  profile content end  ///////////// -->
 
 
+                    <!-- ------------------------------------------------
+                                   script start
+                -------------------------------------------------------------- -->
+
+ 
+
 <?php require_once '../include/footer.php'; ?>
+<script>
+
+
+$(document).ready(function(){
+
+   $('.icon_slc_btn').click(function(){
+
+       $('.set_icon').val($(this).attr("id"));
+
+  
+
+   })
+
+
+})
+
+
+</script>

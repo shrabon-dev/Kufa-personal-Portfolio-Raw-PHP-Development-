@@ -34,7 +34,7 @@ $tab_page_title = "Neptune - Admin profile";
             <tr>
             <td><?=$i++?></td>
             <td><?=$counter_list['counter_title']?></td>
-            <td><?=$counter_list['counter_icon']?></td>
+            <td><i class="<?=$counter_list['counter_icon']?>"></i></td>
             <td><?=$counter_list['counter_amount']?></td>
             <td>
                 
@@ -50,9 +50,9 @@ $tab_page_title = "Neptune - Admin profile";
     
            </td>
             <td> 
-            <a name="delete" class="btn btn-danger" href="../php_function/counter_delete.php?id=<?=$counter_list['counter_id']?>">Delete</a>
-            <button name="edit" class="btn btn-primary" href="../beckend/counter_list.php?id=<?=$counter_list['counter_id']?>">Edit</button>
-            <button name="change" class="btn btn-info" href="../beckend/counter_list.php?id=<?=$counter_list['counter_id']?>">Change Status</button>
+            <!-- <a name="delete" class="btn btn-danger" href="../php_function/counter_delete.php?id=<?=$counter_list['counter_id']?>">Delete</a> -->
+            <button class="btn btn-danger  btn_click"> Delete </button>
+            <a name="edit" class="btn btn-primary" href="../php_function/counter_edit.php?id=<?=$counter_list['counter_id']?>">Edit</a>
             </td>
 
          </tr>
@@ -70,3 +70,33 @@ $tab_page_title = "Neptune - Admin profile";
 
 
 <?php require_once '../include/footer.php'; ?>
+
+<script>
+
+    $(document).ready(function(){
+
+      $('.btn_click').click(
+        Swal.fire({
+  title: 'Are you sure?',
+  text: "You won't be able to revert this!",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Yes, delete it!'
+}).then((result) => {
+  if (result.isConfirmed) {
+    Swal.fire(
+      'Deleted!',
+      'Your file has been deleted.',
+      'success'
+    )
+  }
+})
+
+      )
+
+        
+    })
+
+</script>

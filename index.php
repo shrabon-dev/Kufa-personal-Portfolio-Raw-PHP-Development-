@@ -13,10 +13,12 @@
         <!-- Place favicon.ico in the root directory -->
 
 		<!-- CSS here -->
+        
         <link rel="stylesheet" href="./frontend_page/css/bootstrap.min.css">
         <link rel="stylesheet" href="./frontend_page/css/animate.min.css">
         <link rel="stylesheet" href="./frontend_page/css/magnific-popup.css">
         <link rel="stylesheet" href="./frontend_page/css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="./frontend_page/css/flaticon.css">
         <link rel="stylesheet" href="./frontend_page/css/slick.css">
         <link rel="stylesheet" href="./frontend_page/css/aos.css">
@@ -284,78 +286,31 @@
                         </div>
                     </div>
                     <div class="row">
+
+                   <!-- php code start -->
+                   <?php 
+                      
+                      
+                      $portfolio_select_query = "SELECT * FROM portfolios_info WHERE portfolio_status='active'";
+                      $portfolio_select_mysqli_query = mysqli_query($conn,$portfolio_select_query);
+
+                      ?>
+                   <!-- php code end -->
+                       <?php foreach($portfolio_select_mysqli_query as $portfolio_value): ?>
                         <div class="col-lg-4 col-md-6 pitem">
                             <div class="speaker-box">
 								<div class="speaker-thumb">
-									<img src="./frontend_page/img/images/1.jpg" alt="img">
+									<img style="height: 320px; display:block;" src="./beckend/uploads/portfolio/<?=$portfolio_value['portfolio_img'];?>" alt="img">
 								</div>
 								<div class="speaker-overlay">
-									<span>Design</span>
-									<h4><a href="portfolio-single.html">Hamble Triangle</a></h4>
-									<a href="portfolio-single.html" class="arrow-btn">More information <span></span></a>
+									<span><?=$portfolio_value['portfolio_cetagory'];?></span>
+									<h4><a href="<?=$portfolio_value['portfolio_link'];?>"><?=$portfolio_value['portfolio_title'];?></a></h4>
+									<a href="<?=$portfolio_value['portfolio_link'];?>" class="arrow-btn">More information <span></span></a>
 								</div>
 							</div>
                         </div>
-                        <div class="col-lg-4 col-md-6 pitem">
-                            <div class="speaker-box">
-								<div class="speaker-thumb">
-									<img src="./frontend_page/img/images/2.jpg" alt="img">
-								</div>
-								<div class="speaker-overlay">
-									<span>Video</span>
-									<h4><a href="portfolio-single.html">Dark Beauty</a></h4>
-									<a href="portfolio-single.html" class="arrow-btn">More information <span></span></a>
-								</div>
-							</div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 pitem">
-                            <div class="speaker-box">
-								<div class="speaker-thumb">
-									<img src="./frontend_page/img/images/3.jpg" alt="img">
-								</div>
-								<div class="speaker-overlay">
-									<span>Audio</span>
-									<h4><a href="portfolio-single.html">Gilroy Limbo.</a></h4>
-									<a href="portfolio-single.html" class="arrow-btn">More information <span></span></a>
-								</div>
-							</div>
-                        </div>
-						<div class="col-lg-4 col-md-6 pitem">
-                            <div class="speaker-box">
-								<div class="speaker-thumb">
-									<img src="./frontend_page/img/images/4.jpg" alt="img">
-								</div>
-								<div class="speaker-overlay">
-									<span>Design</span>
-									<h4><a href="portfolio-single.html">Ipsum which</a></h4>
-									<a href="portfolio-single.html" class="arrow-btn">More information <span></span></a>
-								</div>
-							</div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 pitem">
-                            <div class="speaker-box">
-								<div class="speaker-thumb">
-									<img src="./frontend_page/img/images/5.jpg" alt="img">
-								</div>
-								<div class="speaker-overlay">
-									<span>Creative</span>
-									<h4><a href="portfolio-single.html">Eiusmod tempor</a></h4>
-									<a href="portfolio-single.html" class="arrow-btn">More information <span></span></a>
-								</div>
-							</div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 pitem">
-                            <div class="speaker-box">
-								<div class="speaker-thumb">
-									<img src="./frontend_page/img/images/6.jpg" alt="img">
-								</div>
-								<div class="speaker-overlay">
-									<span>UX/UI</span>
-									<h4><a href="portfolio-single.html">again there</a></h4>
-									<a href="portfolio-single.html" class="arrow-btn">More information <span></span></a>
-								</div>
-							</div>
-                        </div>
+                        <?php endforeach;?>
+                      
                     </div>
                 </div>
             </section>
@@ -448,36 +403,25 @@
             <div class="barnd-area pt-100 pb-100">
                 <div class="container">
                     <div class="row brand-active">
+
+ 
+                       <!-- php code start -->
+                        <?php
+                        $conn = mysqli_connect('localhost','root','','cms');
+                        $sponsar_select_query = "SELECT * FROM sponsars WHERE sponsar_status='active' ";
+                        mysqli_query($conn,$sponsar_select_query);
+                        ?>
+                       <!-- php code end -->
+
+                        <?php foreach(mysqli_query($conn,$sponsar_select_query) as $sponsar_value): ?>
+
                         <div class="col-xl-2">
                             <div class="single-brand">
-                                <img src="./frontend_page/img/brand/brand_img01.png" alt="img">
+                                <img style="width: 200px; height:150px;" src="./beckend/uploads/sponsar/<?=$sponsar_value['sponsar_img']?>" alt="img">
                             </div>
                         </div>
-                        <div class="col-xl-2">
-                            <div class="single-brand">
-                                <img src="./frontend_page/img/brand/brand_img02.png" alt="img">
-                            </div>
-                        </div>
-                        <div class="col-xl-2">
-                            <div class="single-brand">
-                                <img src="./frontend_page/img/brand/brand_img03.png" alt="img">
-                            </div>
-                        </div>
-                        <div class="col-xl-2">
-                            <div class="single-brand">
-                                <img src="./frontend_page/img/brand/brand_img04.png" alt="img">
-                            </div>
-                        </div>
-                        <div class="col-xl-2">
-                            <div class="single-brand">
-                                <img src="./frontend_page/img/brand/brand_img05.png" alt="img">
-                            </div>
-                        </div>
-                        <div class="col-xl-2">
-                            <div class="single-brand">
-                                <img src="./frontend_page/img/brand/brand_img03.png" alt="img">
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
+                       
                     </div>
                 </div>
             </div>
@@ -509,6 +453,7 @@
                                 <form action="#">
                                     <input type="text" placeholder="your name *">
                                     <input type="email" placeholder="your email *">
+                                    <input type="text" placeholder="Subject *">
                                     <textarea name="message" id="message" placeholder="your message *"></textarea>
                                     <button class="btn">SEND</button>
                                 </form>

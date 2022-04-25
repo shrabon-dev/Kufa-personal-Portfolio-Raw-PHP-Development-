@@ -13,6 +13,7 @@
     <script src="../assets/plugins/apexcharts/apexcharts.min.js"></script>
     <script src="../assets/js/main.min.js"></script>
     <script src="../assets/js/custom.js"></script>
+    <script src="../assets/js/sweetalert2.min.js"></script>
     <script src="../assets/js/pages/dashboard.js"></script>
 </body>
 </html>

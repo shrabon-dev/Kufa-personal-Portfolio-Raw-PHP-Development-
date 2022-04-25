@@ -44,6 +44,7 @@ $profile_photo_name_db = $_SESSION['profile_photo_name_db'];
     <title><?=(isset($current_page))? $tab_page_title:'';?></title>
 
     <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -121,8 +122,32 @@ $profile_photo_name_db = $_SESSION['profile_photo_name_db'];
                             </li>
                         </ul>  
                      </li>
-                   
-                </ul>
+                     <li class="">
+                        <a href=""><i class="material-icons-two-tone">support</i>Sponsar<i class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
+                        <ul class="sub-menu" style="display: none;">
+                            <li>
+                                <a href="../beckend/sponsar_add.php"> <i class="material-icons-two-tone">add</i> Sponsar Add</a>
+                            </li>
+                            <li>
+                                <a href="../beckend/sponsar_list.php"><i class="material-icons-two-tone">view_list</i> Sponsar List</a>
+                            </li>
+                        </ul>  
+                     </li>
+
+                     <li class="">
+                        <a href=""><i class="material-icons-two-tone">workspaces</i>Portfolio<i class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
+                        <ul class="sub-menu" style="display: none;">
+                            <li>
+                                <a href="../beckend/portfolio_add.php"> <i class="material-icons-two-tone">add</i> Portfolio Add</a>
+                            </li>
+                            <li>
+                                <a href="../beckend/portfolio_list.php"><i class="material-icons-two-tone">view_list</i> Portfolio List</a>
+                            </li>
+                        </ul>  
+                     </li>
+              
+              
+                    </ul>
               
             </div>
         </div>

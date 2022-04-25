@@ -1,7 +1,7 @@
 <?php  
 $tab_page_title = "Neptune - Admin profile";
 ?> 
-<?php require_once '../include/header.php'; ?>
+<?php require_once '../include/header.php'; require_once "font_awesome.php";?>
 
 
 <!-- /////////////  profile content start  ///////////// -->
@@ -22,13 +22,31 @@ $tab_page_title = "Neptune - Admin profile";
                                  <input type="text" name="counter_title">
                                   <!--  -->
 
-
+                                     
                                   <!--  -->
                                  <div>
                                  <label for="">counter Icon : </label>
-                                 <input type="text" name="counter_icon">
+                                 <input class="counter_icon" type="text" name="counter_icon">
                                  </div>
+
                                        <!--  -->
+                                       <!-- php code start -->
+                                       <div class="card m-1" style="background-color:#dbdbdb; border-color:darkblue;">
+                                  
+                                  <div class="card-body">
+                                    <h4 class="card-title">Choose Your Icon</h4>
+                                    <div class="over_flow_hiden" style="overflow-y:scroll;height:180px;">
+                                    <?php foreach($fonts as $icons): ?>
+                                       <span class="badge badge-dark m-1 icon_slc_btn" id="<?=$icons?>">
+                                       <i class="fa-1x <?=$icons?>"></i>
+                                       </span>
+                                       <?php endforeach;?>
+                                       </div>
+                                  </div>
+                                </div>
+                             
+
+                                       <!-- php code end -->
 
 
                                   <!--  -->
@@ -81,3 +99,12 @@ $tab_page_title = "Neptune - Admin profile";
 
 
 <?php require_once '../include/footer.php'; ?>
+
+<script>
+
+    $(document).ready(function(){
+        $('.icon_slc_btn').click(function(){
+             $('.counter_icon').val($(this).attr('id'));
+        })
+    })
+</script>

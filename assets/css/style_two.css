@@ -107,3 +107,31 @@ input::-webkit-outer-spin-button{
 .services_add_form input{
   width: 100% !important;
 }
+.profile_form_set_info .photo_upload{
+    cursor: pointer;
+    width: 300px !important;
+    display: block;
+    background: #2482e0 !important;
+    font-size: 16px;
+    font-weight: 300;
+    color: #ffffff;
+    border-radius: 35px;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    -ms-border-radius: 35px;
+    -o-border-radius: 35px;
+    box-shadow: 0 0 15px 0 #53a9f0;
+    overflow: hidden;
+}
+::file-selector-button{
+    background: #004586 !important;
+    color: #ffffff !important;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+    outline: none;
+    border: none;
+    padding: 5px 10px;
+}
