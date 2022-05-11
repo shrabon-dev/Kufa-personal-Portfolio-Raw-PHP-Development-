@@ -15,7 +15,7 @@ $tab_page_title = "Neptune - Admin profile";
                             </div>
                         </div>
                         <div class="row">
-                        <div class="col-lg-4">
+                        <div class="col-lg-6">
                           <div class="form_section">
                               <?php if(isset($_SESSION['data_include'])):?>
                                 <div class="alert alert-info alert-dismissible fade show" role="alert">
@@ -49,8 +49,8 @@ $tab_page_title = "Neptune - Admin profile";
 
                                   <!--  -->
                                     <div>
-                                      <label for="">Portfolio URL : </label>
-                                      <input type="text" name="portfolio_url">
+                                      <label for="">Portfolio Details : </label>
+                                      <textarea class="textarea" name="portfolio_details"></textarea>
                                       </div>
                                       <div><?=(isset( $_SESSION['error_desc']))?  $_SESSION['error_desc']:''?><?php unset( $_SESSION['error_desc']);?></div>
 

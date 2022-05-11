@@ -47,7 +47,7 @@ span{
 }
 .profile_form_set_info input[type=text],.profile_form_set_info input[type=number],.profile_form_set_info input[type=password],
 .profile_form_set_info input[type=phone]{
-    width: 240px;
+    width: 60%;
     height: 40px;
     border: 1px solid #2482e0;
     padding-left: 15px;
@@ -86,7 +86,7 @@ input::-webkit-outer-spin-button{
     width: 80%;
 }
 .textarea{
-    width: 100%;
+    width: 70%;
     height: 150px;
     resize: none;
     border: 1px solid #2482e0;
@@ -100,6 +100,7 @@ input::-webkit-outer-spin-button{
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
+    margin-top: 20px;
 }
 .services_add_form{
     width: 100%;

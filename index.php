@@ -83,7 +83,7 @@
                 </div>
                 <div class="logo-side mb-30">
                     <a href="index-2.html">
-                        <img src="./frontend_page/img/logo/logo.png" alt="" />
+                        <img src="./frontend_page/img/logo/logo.png" alt="logo.png" />
                     </a>
                 </div>
                 <div class="side-info mb-30">
@@ -116,6 +116,32 @@
         <!-- main-area -->
         <main>
 
+<!-- php code start -->
+<?php
+ $conn = mysqli_connect('localhost','root','','cms');
+                      
+$settings_show_select_query = "SELECT settings_value FROM settings_info WHERE settings_name='Owner_Name'";
+mysqli_query($conn,$settings_show_select_query);
+$owner_name_show = mysqli_fetch_assoc( mysqli_query($conn,$settings_show_select_query))['settings_value'];
+
+?>
+
+<?php
+                      
+$settings_show_owner_details_select_query = "SELECT settings_value FROM settings_info WHERE settings_name='Owner_Details'";
+mysqli_query($conn,$settings_show_select_query);
+$owner_details_show = mysqli_fetch_assoc( mysqli_query($conn,$settings_show_owner_details_select_query))['settings_value'];
+
+?>
+                     <?php
+                      
+                      $settings_show_about_details_select_query = "SELECT settings_value FROM settings_info WHERE settings_name='About_Details'";
+                      mysqli_query($conn,$settings_show_select_query);
+                      $about_details_show = mysqli_fetch_assoc( mysqli_query($conn,$settings_show_owner_details_select_query))['settings_value'];
+                      
+                      ?>
+<!-- php code end -->
+
             <!-- banner-area -->
             <section id="home" class="banner-area banner-bg fix">
                 <div class="container">
@@ -123,8 +149,8 @@
                         <div class="col-xl-7 col-lg-6">
                             <div class="banner-content">
                                 <h6 class="wow fadeInUp" data-wow-delay="0.2s">HELLO!</h6>
-                                <h2 class="wow fadeInUp" data-wow-delay="0.4s">I am Will Smith</h2>
-                                <p class="wow fadeInUp" data-wow-delay="0.6s">I'm Will Smith, professional web developer with long time experience in this field​.</p>
+                                <h2 class="wow fadeInUp" data-wow-delay="0.4s">I am <?=$owner_name_show;?></h2>
+                                <p class="wow fadeInUp" data-wow-delay="0.6s"><?=$owner_details_show;?></p>
                                 <div class="banner-social wow fadeInUp" data-wow-delay="0.8s">
                                     <ul>
                                         <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -162,69 +188,36 @@
                                 <h2>About Me</h2>
                             </div>
                             <div class="about-content">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, sed repudiandae odit deserunt, quas
-                                    quibusdam necessitatibus nesciunt eligendi esse sit non reprehenderit quisquam asperiores maxime
-                                    blanditiis culpa vitae velit. Numquam!</p>
+                                <p><?=$about_details_show;?></p>
                                 <h3>Education:</h3>
                             </div>
+
+                            <!-- php code start -->
+                            <?php 
+                           
+                            $about_select_query = "SELECT * FROM about_info WHERE about_status='active'";
+                            $about_select_mysqli_query = mysqli_query($conn,$about_select_query);
+     
+                            ?>
+                            <!-- php code  end -->
+
                             <!-- Education Item -->
+                            <?php foreach( $about_select_mysqli_query as $about_values): ?>
                             <div class="education">
-                                <div class="year">2020</div>
+                                <div class="year"><?=$about_values['about_year']?></div>
                                 <div class="line"></div>
                                 <div class="location">
-                                    <span>PHD of Interaction Design &amp; Animation</span>
+                                    <span><?=$about_values['about_title']?></span>
                                     <div class="progressWrapper">
                                         <div class="progress">
-                                            <div class="progress-bar wow slideInLefts" data-wow-delay="0.2s" data-wow-duration="2s" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                            <div class="progress-bar wow slideInLefts" data-wow-delay="0.2s" data-wow-duration="2s" role="progressbar" style="width: <?=$about_values['about_skill']?>%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <?php endforeach; ?>
                             <!-- End Education Item -->
-                            <!-- Education Item -->
-                            <div class="education">
-                                <div class="year">2016</div>
-                                <div class="line"></div>
-                                <div class="location">
-                                    <span>Master of Database Administration</span>
-                                    <div class="progressWrapper">
-                                        <div class="progress">
-                                            <div class="progress-bar wow slideInLefts" data-wow-delay="0.2s" data-wow-duration="2s" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Education Item -->
-                            <!-- Education Item -->
-                            <div class="education">
-                                <div class="year">2010</div>
-                                <div class="line"></div>
-                                <div class="location">
-                                    <span>Bachelor of Computer Engineering</span>
-                                    <div class="progressWrapper">
-                                        <div class="progress">
-                                            <div class="progress-bar wow slideInLefts" data-wow-delay="0.2s" data-wow-duration="2s" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0"
-                                                aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Education Item -->
-                            <!-- Education Item -->
-                            <div class="education">
-                                <div class="year">2005</div>
-                                <div class="line"></div>
-                                <div class="location">
-                                    <span>Diploma of Computer</span>
-                                    <div class="progressWrapper">
-                                        <div class="progress">
-                                            <div class="progress-bar wow slideInLefts" data-wow-delay="0.2s" data-wow-duration="2s" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0"
-                                                aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Education Item -->
+                         
                         </div>
                     </div>
                 </div>
@@ -247,7 +240,6 @@
                        <!-- php code start -->
                       <?php 
                       
-                      $conn = mysqli_connect('localhost','root','','cms');
                       $services_select_query = "SELECT * FROM services_info WHERE service_status='Active'";
                       $services_select_mysqli_query = mysqli_query($conn,$services_select_query);
 
@@ -294,18 +286,20 @@
                       $portfolio_select_query = "SELECT * FROM portfolios_info WHERE portfolio_status='active'";
                       $portfolio_select_mysqli_query = mysqli_query($conn,$portfolio_select_query);
 
+                    
+
                       ?>
                    <!-- php code end -->
                        <?php foreach($portfolio_select_mysqli_query as $portfolio_value): ?>
                         <div class="col-lg-4 col-md-6 pitem">
                             <div class="speaker-box">
 								<div class="speaker-thumb">
-									<img style="height: 320px; display:block;" src="./beckend/uploads/portfolio/<?=$portfolio_value['portfolio_img'];?>" alt="img">
+									<img style="height: 360px; display:block;" src="./beckend/uploads/portfolio/<?=$portfolio_value['portfolio_img'];?>" alt="img">
 								</div>
 								<div class="speaker-overlay">
 									<span><?=$portfolio_value['portfolio_cetagory'];?></span>
-									<h4><a href="<?=$portfolio_value['portfolio_link'];?>"><?=$portfolio_value['portfolio_title'];?></a></h4>
-									<a href="<?=$portfolio_value['portfolio_link'];?>" class="arrow-btn">More information <span></span></a>
+									<h4><a href="portfolio-single.php?id=<?=$portfolio_value['portfolio_id'];?>"><?=$portfolio_value['portfolio_title'];?></a></h4>
+									<a href="portfolio-single.php?id=<?=$portfolio_value['portfolio_id'];?>" class="arrow-btn">More information <span></span></a>
 								</div>
 							</div>
                         </div>
@@ -354,6 +348,16 @@
             </section>
             <!-- fact-area-end -->
 
+                  <!-- php code start -->
+                  <?php 
+                      
+                      
+                      $testimonial_select_query = "SELECT * FROM testimonial_info WHERE testimonial_status='active'";
+                      $testimonial_select_mysqli_query = mysqli_query($conn,$testimonial_select_query);
+
+                      ?>
+                   <!-- php code end -->
+
             <!-- testimonial-area -->
             <section class="testimonial-area primary-bg pt-115 pb-115">
                 <div class="container">
@@ -368,30 +372,21 @@
                     <div class="row justify-content-center">
                         <div class="col-xl-9 col-lg-10">
                             <div class="testimonial-active">
+                                <?php foreach($testimonial_select_mysqli_query as $testi_value): ?>
                                 <div class="single-testimonial text-center">
                                     <div class="testi-avatar">
-                                        <img src="./frontend_page/img/images/testi_avatar.png" alt="img">
+                                        <img style="width: 120px; height:120px; border-radius:50%;" src="./beckend/uploads/testimonial/<?=$testi_value['testimonial_img'];?>" alt="img">
                                     </div>
                                     <div class="testi-content">
-                                        <h4><span>“</span> An event is a message sent by an object to signal the occur rence of an action. The action can causd user interaction such as a button click, or it can result <span>”</span></h4>
+                                        <h4><span>“</span> <?=$testi_value['testimonial_details'];?> <span>”</span></h4>
                                         <div class="testi-avatar-info">
-                                            <h5>tonoy jakson</h5>
-                                            <span>head of idea</span>
+                                            <h5><?=$testi_value['testimonial_name'];?></h5>
+                                            <span><?=$testi_value['testimonial_position'];?></span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="single-testimonial text-center">
-                                    <div class="testi-avatar">
-                                        <img src="./frontend_page/img/images/testi_avatar.png" alt="img">
-                                    </div>
-                                    <div class="testi-content">
-                                        <h4><span>“</span> An event is a message sent by an object to signal the occur rence of an action. The action can causd user interaction such as a button click, or it can result <span>”</span></h4>
-                                        <div class="testi-avatar-info">
-                                            <h5>tonoy jakson</h5>
-                                            <span>head of idea</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                <?php endforeach; ?>
+                               
                             </div>
                         </div>
                     </div>
@@ -428,6 +423,38 @@
             <!-- brand-area-end -->
 
             <!-- contact-area -->
+
+<!-- php code start -->
+<?php
+                      
+$Owner_Address_select_query = "SELECT settings_value FROM settings_info WHERE settings_name='Owner_Address'";
+mysqli_query($conn,$settings_show_select_query);
+$owner_address_show = mysqli_fetch_assoc( mysqli_query($conn,$Owner_Address_select_query))['settings_value'];
+
+?>
+
+<?php
+                      
+$settings_show_footer_details_select_query = "SELECT settings_value FROM settings_info WHERE settings_name='Footer_details'";
+mysqli_query($conn,$settings_show_select_query);
+$footer_details_show = mysqli_fetch_assoc( mysqli_query($conn,$settings_show_footer_details_select_query))['settings_value'];
+
+
+$settings_show_Owner_Phone_select_query = "SELECT settings_value FROM settings_info WHERE settings_name='Owner_Phone'";
+mysqli_query($conn,$settings_show_select_query);
+$owner_phone_show = mysqli_fetch_assoc( mysqli_query($conn,$settings_show_Owner_Phone_select_query))['settings_value'];
+
+
+
+$settings_show_owner_email_select_query = "SELECT settings_value FROM settings_info WHERE settings_name='Owner_email'";
+mysqli_query($conn,$settings_show_select_query);
+$Owner_email_show = mysqli_fetch_assoc( mysqli_query($conn,$settings_show_owner_email_select_query))['settings_value'];
+
+
+?>
+<!-- php code end -->
+
+
             <section id="contact" class="contact-area primary-bg pt-120 pb-120">
                 <div class="container">
                     <div class="row align-items-center">
@@ -437,13 +464,13 @@
                                 <h2>Contact Information</h2>
                             </div>
                             <div class="contact-content">
-                                <p>Event definition is - somthing that happens occurre How evesnt sentence. Synonym when an unknown printer took a galley.</p>
+                                <p><?=$footer_details_show;?></p>
                                 <h5>OFFICE IN <span>NEW YORK</span></h5>
                                 <div class="contact-list">
                                     <ul>
-                                        <li><i class="fas fa-map-marker"></i><span>Address :</span>Event Center park WT 22 New York</li>
-                                        <li><i class="fas fa-headphones"></i><span>Phone :</span>+9 125 645 8654</li>
-                                        <li><i class="fas fa-globe-asia"></i><span>e-mail :</span>info@exemple.com</li>
+                                        <li><i class="fas fa-map-marker"></i><span>Address :</span><?=$owner_address_show;?></li>
+                                        <li><i class="fas fa-headphones"></i><span>Phone :</span><?=$owner_phone_show;?></li>
+                                        <li><i class="fas fa-globe-asia"></i><span>e-mail :</span></span><?=$Owner_email_show;?></li>
                                     </ul>
                                 </div>
                             </div>

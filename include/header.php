@@ -100,6 +100,20 @@ $profile_photo_name_db = $_SESSION['profile_photo_name_db'];
                     <li>
                         <a href="../index.php" target="_blank"><i class="material-icons-two-tone">home</i>Visit Site</a>
                     </li>
+                    <li>
+                        <a href="../beckend/setting_form_update.php"><i class="material-icons-two-tone">settings</i>Setting</a>
+                    </li>
+                    <li class="">
+                        <a href=""><i class="material-icons-two-tone">person</i>About me<i class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
+                         <ul class="sub-menu" style="display: none;">
+                            <li>
+                                <a href="../beckend/about_me_add.php"> <i class="material-icons-two-tone">add</i> About Add</a>
+                            </li>
+                            <li>
+                                <a href="../beckend/about_me_list.php"><i class="material-icons-two-tone">list_alt</i> About List</a>
+                            </li>
+                        </ul>  
+                     </li>
                     <li class="">
                         <a href=""><i class="material-icons-two-tone">miscellaneous_services</i>Services<i class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
                          <ul class="sub-menu" style="display: none;">
@@ -145,7 +159,17 @@ $profile_photo_name_db = $_SESSION['profile_photo_name_db'];
                             </li>
                         </ul>  
                      </li>
-              
+                     <li class="">
+                        <a href=""><i class="material-icons-two-tone">reviews</i>Testimonial<i class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
+                        <ul class="sub-menu" style="display: none;">
+                            <li>
+                                <a href="../beckend/testimonial_add.php"> <i class="material-icons-two-tone">add</i> Testimonial Add</a>
+                            </li>
+                            <li>
+                                <a href="../beckend/testimonial_list.php"><i class="material-icons-two-tone">view_list</i> Testimonial List</a>
+                            </li>
+                        </ul>  
+                     </li>
               
                     </ul>
               

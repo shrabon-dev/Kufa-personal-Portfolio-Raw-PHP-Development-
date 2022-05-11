@@ -4,18 +4,16 @@ $conn = mysqli_connect('localhost','root','','cms');
 
 $portfolio_title = $_POST['portfolio_title'];
 $portfolio_cetagory = $_POST['portfolio_cetagory'];
-$portfolio_url = $_POST['portfolio_url'];
+$portfolio_details = $_POST['portfolio_details'];
 $portfolio_status = $_POST['portfolio_status'];
 
 
-
-$id = $_SESSION['edit_id'];
 $file_input = $_FILES['portfolio_img'];
 $file_name = $_FILES['portfolio_img']['name'];
 $file_type = $_FILES['portfolio_img']['type'];
 $file_tmp_name = $_FILES['portfolio_img']['tmp_name'];
 $file_size = $_FILES['portfolio_img']['size'];
-$new_name = "portfolio".$file_name;
+$new_name = "portfolio_".$file_name;
 $upload_location = "../beckend/uploads/portfolio/".$new_name;
 
 
@@ -38,11 +36,10 @@ if($portfolio_cetagory == true){
     $condition = true;; 
 }
 
-if($portfolio_url == true && filter_var($portfolio_url,FILTER_VALIDATE_URL) == true){
+if($portfolio_details == true ){
 
 }else{
-    $_SESSION['error_desc'] = "Please, use valid url";
-
+    $_SESSION['error_desc'] = "Please, give the details";
     $condition = true;
 }
 
@@ -65,15 +62,14 @@ if($condition == true){
 }elseif($condition == false){
     move_uploaded_file($file_tmp_name,$upload_location);
 
-    $portfolios_insert_query = "INSERT INTO portfolios_info (portfolio_title,portfolio_cetagory,portfolio_link,portfolio_img,portfolio_status) 
-    VALUES('$portfolio_title','$portfolio_cetagory','$portfolio_url','$new_name','$portfolio_status')" ;
+    $portfolios_insert_query = "INSERT INTO portfolios_info (portfolio_title,portfolio_cetagory,portfolio_img,portfolio_details,portfolio_status) 
+    VALUES('$portfolio_title','$portfolio_cetagory','$new_name','$portfolio_details','$portfolio_status')" ;
     $portfolios_mysqli_query = mysqli_query($conn,$portfolios_insert_query);
     $_SESSION['data_include'] = "Your data is insert";
 
     header('location: ../beckend/portfolio_add.php');
 
 }
-
 
 
 
