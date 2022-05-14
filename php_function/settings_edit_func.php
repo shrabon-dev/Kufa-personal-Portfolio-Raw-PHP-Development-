@@ -9,5 +9,6 @@ foreach($_POST as $settings_name => $settings_value){
     mysqli_query($conn,$settings_update_query);
 
 }   
+header('location: ../beckend/setting_form_update.php')
 
 ?>

@@ -54,11 +54,13 @@
                 <label for="signUpUsername" class="form-label">Name</label>
                 <input type="text" class="form-control  <?=(isset($_SESSION['name__erorr']))? "is-invalid":'';?>" id="signUpUsername" aria-describedby="signUpUsername" placeholder="Enter Name" name="name" value="<?=(isset($_SESSION['name__show']))? $_SESSION['name__show'] : ''?>">
 
+                <div style="color:red;">
                 <?php   
                 if(isset($_SESSION['name__erorr'])){
                 echo "<span>". $_SESSION['name__erorr'] ."</span>";
                 }
                 ?>
+                </div>
 
                 <label for="signUpEmail" class="form-label">Email address</label>
                 <input type="text" class="form-control <?php if(isset($_SESSION['email__erorr'])){echo "is-invalid";}?>" id="signUpEmail" aria-describedby="signUpEmail" placeholder="example@neptune.com" name="email" value="<?=(isset($_SESSION['email__show']))? $_SESSION['email__show'] : ''?>">

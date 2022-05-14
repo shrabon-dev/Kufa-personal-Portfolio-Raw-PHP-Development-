@@ -46,7 +46,7 @@ $tab_page_title = "Neptune - Admin profile";
                             
                                 <form class="profile_form_set_info " action="../php_function/profile_sitting.php" method="post">
                                  <label for="">Add Phone Number  <span>:</span> </label>
-                                 <input class="mb-2" type="phone" name="add_phone">
+                                 <input class="mb-2" type="phone" name="add_phone" value="<?=(isset($_SESSION['admin_user_phone']))?   $_SESSION['admin_user_phone']:''?>">
                                  <button type="submit" name="btn_phone_add">Change</button>
                                 </form>
                               

@@ -60,7 +60,6 @@ if(isset($_POST['btn_name_change'])){
 if(isset($_POST['btn_email_change'])){
        
     if($set_email == true){
-        // $conn = mysqli_connect('localhost','root','','cms');
         $update_query = "UPDATE users_info SET user_email='$set_email' WHERE user_id='$admin_user_id'";
         $update_query_mysqli = mysqli_query($conn,$update_query);
         $_SESSION['admin_user_email'] = $set_email;

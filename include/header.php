@@ -4,7 +4,7 @@
 }
 
 ?>
-<?php       $conn = mysqli_connect('localhost','root','','cms'); ?>
+<?php $conn = mysqli_connect('localhost','root','','cms'); ?>
 <?php
 $current_page_find =explode('/',$_SERVER['PHP_SELF']);
 
@@ -80,6 +80,7 @@ $profile_photo_name_db = $_SESSION['profile_photo_name_db'];
                         <img src="../beckend/uploads/profile_images/<?=$profile_photo_name_db?>" style="display:block; width: 60px; height:60px; border-radius:50%;">
                         <span class="activity-indicator"></span>
                         <span class="user-info-text"><?=$_SESSION['admin_user_name']?><br><span class="user-state-info"><?=$_SESSION['admin_user_email']?></span></span>
+                        <span class="user-info-text mb-2"><?=$_SESSION['admin_user_phone'];?></span>
                     </a>
                 </div>
             </div>
@@ -91,8 +92,20 @@ $profile_photo_name_db = $_SESSION['profile_photo_name_db'];
                     <li class="<?=($current_page == 'adminDashbord.php')? 'active-page':''?>">
                         <a href="adminDashbord.php" class="active"><i class="material-icons-two-tone">dashboard</i>Dashboard</a>
                     </li>
+
+<!-- php code of mailbox start  -->
+
+<?php
+
+$message_select_query = "SELECT COUNT(*) AS 'messages_amount' FROM messages";
+$messages_mysqli_query = mysqli_query($conn,$message_select_query);
+$messages_amount = mysqli_fetch_assoc($messages_mysqli_query)['messages_amount'];
+?>
+<!-- php code of mailbox end  -->
+
+
                     <li>
-                        <a href="mailbox.html"><i class="material-icons-two-tone">inbox</i>Mailbox<span class="badge rounded-pill badge-danger float-end">87</span></a>
+                        <a href="../beckend/mailbox.php"><i class="material-icons-two-tone">inbox</i>Mailbox<span class="badge rounded-pill badge-danger float-end"><?=$messages_amount;?></span></a>
                     </li>
                     <li class="<?=($current_page == 'profile.php')? 'active-page':''?>">
                         <a href="profile.php"><i class="material-icons-two-tone">account_circle</i>Admin Profile</a>
@@ -238,15 +251,7 @@ $profile_photo_name_db = $_SESSION['profile_photo_name_db'];
                         </div>
                         <div class="d-flex">
                             <ul class="navbar-nav">
-                                <li class="nav-item hidden-on-mobile">
-                                    <a class="nav-link active" href="#">Applications</a>
-                                </li>
-                                <li class="nav-item hidden-on-mobile">
-                                    <a class="nav-link" href="#">Reports</a>
-                                </li>
-                                <li class="nav-item hidden-on-mobile">
-                                    <a class="nav-link" href="#">Projects</a>
-                                </li>
+                                
                                 <li class="nav-item">
                                     <a class="nav-link toggle-search" href="#"><i class="material-icons">search</i></a>
                                 </li>

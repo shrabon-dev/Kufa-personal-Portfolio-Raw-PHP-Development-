@@ -19,14 +19,6 @@ $tab_page_title = "Neptune - Admin About me";
                         <div class="row">
                         <div class="col-lg-12">
 
-<!-- php code start -->
-<?php
- $id = $_GET['id'];
- $about_select_query_for_show = "SELECT * FROM about_info WHERE about_id='$id'";
- $about_mysqli_query_for_show = mysqli_query($conn,$about_select_query_for_show);
- $about_mysqli_array_query_for_show= mysqli_fetch_assoc($about_mysqli_query_for_show);
-?>
-<!-- php code end -->
 
                           <div class="form_section">
                              <form class="profile_form_set_info counters_add_form" action="../php_function/settings_edit_func.php" method="post">

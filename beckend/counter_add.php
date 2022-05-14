@@ -76,22 +76,6 @@ $tab_page_title = "Neptune - Admin profile";
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                       
-
                         </div>
                     </div>
 

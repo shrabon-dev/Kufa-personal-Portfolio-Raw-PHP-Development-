@@ -15,6 +15,4 @@ $delete_mysqli_query= mysqli_query($conn,$portfolio_delete_query);
 
 header('location: ../beckend/portfolio_list.php');
 
-
-
 ?>

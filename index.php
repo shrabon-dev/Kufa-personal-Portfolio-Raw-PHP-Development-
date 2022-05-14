@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -477,12 +478,45 @@ $Owner_email_show = mysqli_fetch_assoc( mysqli_query($conn,$settings_show_owner_
                         </div>
                         <div class="col-lg-6">
                             <div class="contact-form">
-                                <form action="#">
-                                    <input type="text" placeholder="your name *">
-                                    <input type="email" placeholder="your email *">
-                                    <input type="text" placeholder="Subject *">
+                                <div style="color:green;">
+                                    <?php if(isset($_SESSION['message_success'])){
+                                    echo "<span>". $_SESSION['message_success'] ."</span>";}
+                                    unset($_SESSION['message_success']); ?>
+                                    </div>
+                                <form action="./beckend/input_form_func.php" method="POST">
+                                    <input type="text" placeholder="your name *" name="messanger_name"> 
+
+                                    <div style="color:red;">
+                                    <?php if(isset($_SESSION['messanger_name_error'])){
+                                    echo "<span>". $_SESSION['messanger_name_error'] ."</span>";}
+                                    unset($_SESSION['messanger_name_error']); ?>
+                                    </div>
+
+                                    <input type="email" placeholder="your email *" name="messanger_email">
+
+                                    <div style="color:red;">
+                                    <?php if(isset($_SESSION['messanger_email_error'])){
+                                    echo "<span>". $_SESSION['messanger_email_error'] ."</span>";}
+                                    unset($_SESSION['messanger_email_error']); ?>
+                                    </div>
+
+                                    <input type="text" placeholder="Subject *" name="message_subject">
+
+                                    <div style="color:red;">
+                                    <?php if(isset($_SESSION['message_subject_error'])){
+                                    echo "<span>". $_SESSION['message_subject_error'] ."</span>";}
+                                    unset($_SESSION['message_subject_error']); ?>
+                                    </div>
+
                                     <textarea name="message" id="message" placeholder="your message *"></textarea>
-                                    <button class="btn">SEND</button>
+
+                                    <div style="color:red;">
+                                    <?php if(isset($_SESSION['message_error'])){
+                                    echo "<span>". $_SESSION['message_error'] ."</span>";}
+                                    unset($_SESSION['message_error']); ?>
+                                    </div>
+
+                                    <button name="message_btn" class="btn mt-4" type="submit">SEND</button>
                                 </form>
                             </div>
                         </div>

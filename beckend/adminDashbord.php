@@ -6,6 +6,47 @@ $tab_page_title = "Neptune - Dashboard of user";
 
 <!-- /////////////////   main containe start    ///////////////// -->
 
+
+<!-- php code start -->
+<?php
+$admin_user_select_query = "SELECT COUNT(*) AS 'user_amount' FROM users_info";
+$admin_user_mysqli_query = mysqli_query($conn,$admin_user_select_query);
+$user_amount = mysqli_fetch_assoc($admin_user_mysqli_query)['user_amount'];
+
+
+// ----------------------services_select_query
+
+$services_select_query = "SELECT COUNT(*) AS 'services_amount' FROM services_info";
+$services_mysqli_query = mysqli_query($conn,$services_select_query);
+$services_amount = mysqli_fetch_assoc($services_mysqli_query)['services_amount'];
+
+// ----------------------counters_select_query
+
+$counters_select_query = "SELECT COUNT(*) AS 'counters_amount' FROM counter_info";
+$counter_mysqli_query = mysqli_query($conn,$counters_select_query);
+$counters_amount = mysqli_fetch_assoc($counter_mysqli_query)['counters_amount'];
+
+// ----------------------sponsars_select_query
+
+$sponsars_select_query = "SELECT COUNT(*) AS 'sponsars_amount' FROM sponsars";
+$sponsars_mysqli_query = mysqli_query($conn,$sponsars_select_query);
+$sponsars_amount = mysqli_fetch_assoc($sponsars_mysqli_query)['sponsars_amount'];
+
+// ----------------------portfolios_select_query
+
+$portfolios_select_query = "SELECT COUNT(*) AS 'portfolios_amount' FROM portfolios_info";
+$portfolios_mysqli_query = mysqli_query($conn,$portfolios_select_query);
+$portfolios_amount = mysqli_fetch_assoc($portfolios_mysqli_query)['portfolios_amount'];
+
+// ----------------------testimonial_select_query
+
+$testimonial_select_query = "SELECT COUNT(*) AS 'testimonial_amount' FROM testimonial_info ";
+$testimonial_mysqli_query = mysqli_query($conn,$testimonial_select_query);
+$testimonial_amount = mysqli_fetch_assoc($testimonial_mysqli_query)['testimonial_amount'];
+?>
+<!-- php code end -->
+
+
                     <div class="container">
                      
                         <div class="row">
@@ -14,16 +55,15 @@ $tab_page_title = "Neptune - Dashboard of user";
                                     <div class="card-body">
                                         <div class="widget-stats-container d-flex">
                                             <div class="widget-stats-icon widget-stats-icon-primary">
-                                                <i class="material-icons-outlined">paid</i>
+                                                <i class="material-icons-outlined">person</i>
                                             </div>
                                             <div class="widget-stats-content flex-fill">
-                                                <span class="widget-stats-title">Today's Sales</span>
-                                                <span class="widget-stats-amount">$38,211</span>
-                                                <span class="widget-stats-info">471 Orders Total</span>
+                                                <span class="widget-stats-title">Active Users</span>
+                                                <span class="widget-stats-amount"><?=$user_amount;?></span>
+                                                <span class="widget-stats-info">Total Users at this time</span>
+                                                
                                             </div>
-                                            <div class="widget-stats-indicator widget-stats-indicator-negative align-self-start">
-                                                <i class="material-icons">keyboard_arrow_down</i> 4%
-                                            </div>
+                                          
                                         </div>
                                     </div>
                                 </div>
@@ -33,39 +73,37 @@ $tab_page_title = "Neptune - Dashboard of user";
                                     <div class="card-body">
                                         <div class="widget-stats-container d-flex">
                                             <div class="widget-stats-icon widget-stats-icon-warning">
-                                                <i class="material-icons-outlined">person</i>
+                                                <i class="material-icons-outlined">miscellaneous_services</i>
                                             </div>
                                             <div class="widget-stats-content flex-fill">
-                                                <span class="widget-stats-title">Active Users</span>
-                                                <span class="widget-stats-amount">23,491</span>
-                                                <span class="widget-stats-info">790 unique this month</span>
+                                                <span class="widget-stats-title">Services</span>
+                                                <span class="widget-stats-amount"><?=$services_amount;?></span>
+                                                <span class="widget-stats-info">Total Services at this time</span>
                                             </div>
-                                            <div class="widget-stats-indicator widget-stats-indicator-positive align-self-start">
-                                                <i class="material-icons">keyboard_arrow_up</i> 12%
-                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                          
                             <div class="col-xl-4">
                                 <div class="card widget widget-stats">
                                     <div class="card-body">
                                         <div class="widget-stats-container d-flex">
-                                            <div class="widget-stats-icon widget-stats-icon-danger">
-                                                <i class="material-icons-outlined">file_download</i>
+                                            <div class="widget-stats-icon widget-stats-icon-warning">
+                                                <i class="material-icons-outlined">Counter</i>
                                             </div>
                                             <div class="widget-stats-content flex-fill">
-                                                <span class="widget-stats-title">Downloads</span>
-                                                <span class="widget-stats-amount">140,390</span>
-                                                <span class="widget-stats-info">87 items downloaded</span>
+                                                <span class="widget-stats-title">Counter</span>
+                                                <span class="widget-stats-amount"><?=$counters_amount;?></span>
+                                                <span class="widget-stats-info">Total Counter at this time</span>
                                             </div>
-                                            <div class="widget-stats-indicator widget-stats-indicator-positive align-self-start">
-                                                <i class="material-icons">keyboard_arrow_up</i> 7%
-                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                         <div class="row">
                         <div class="col-xl-6">
@@ -110,6 +148,64 @@ $tab_page_title = "Neptune - Dashboard of user";
                                     </div>
                                 </div>
                             </div>
+                        
+                        <div class="col-lg-6">
+                            <div class="row">
+                            <div class="col-xl-12">
+                                <div class="card widget widget-stats">
+                                    <div class="card-body">
+                                        <div class="widget-stats-container d-flex">
+                                            <div class="widget-stats-icon widget-stats-icon-warning">
+                                                <i class="material-icons-outlined">support</i>
+                                            </div>
+                                            <div class="widget-stats-content flex-fill">
+                                                <span class="widget-stats-title">Sponsars</span>
+                                                <span class="widget-stats-amount"><?=$sponsars_amount;?></span>
+                                                <span class="widget-stats-info">Total Sponsars at this time</span>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-12">
+                                <div class="card widget widget-stats">
+                                    <div class="card-body">
+                                        <div class="widget-stats-container d-flex">
+                                            <div class="widget-stats-icon widget-stats-icon-warning">
+                                                <i class="material-icons-outlined">workspaces</i>
+                                            </div>
+                                            <div class="widget-stats-content flex-fill">
+                                                <span class="widget-stats-title">Portfolios</span>
+                                                <span class="widget-stats-amount"><?=$portfolios_amount;?></span>
+                                                <span class="widget-stats-info">Total Portfolios at this time</span>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-12">
+                                <div class="card widget widget-stats">
+                                    <div class="card-body">
+                                        <div class="widget-stats-container d-flex">
+                                            <div class="widget-stats-icon widget-stats-icon-warning">
+                                                <i class="material-icons-outlined">reviews</i>
+                                            </div>
+                                            <div class="widget-stats-content flex-fill">
+                                                <span class="widget-stats-title">Testimonials</span>
+                                                <span class="widget-stats-amount"><?=$testimonial_amount;?></span>
+                                                <span class="widget-stats-info">Total Testimonial at this time</span>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
                         </div>
                     </div>
                     

@@ -22,7 +22,7 @@ $upload_location = "../beckend/uploads/portfolio/".$new_name;
 
 if($file_name == true){
     move_uploaded_file($file_tmp_name,$upload_location);
-    $portfolio_img_update_query = "UPDATE portfolios_info SET portfolio_img='$new_name' WHERE portfolio_id= '$id'";
+    $portfolio_img_update_query = "UPDATE portfolios_info SET portfolio_img='$new_name' WHERE portfolio_id='$id'";
     mysqli_query($conn,$portfolio_img_update_query);
 
 }elseif($portfolio_update_cetagory == false){

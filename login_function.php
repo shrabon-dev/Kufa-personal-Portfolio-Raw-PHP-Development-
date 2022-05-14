@@ -37,13 +37,14 @@
 
              if($isTrue == true){
                    
-                $admin_user_select = "SELECT user_id,user_name FROM users_info WHERE user_email='$lg_email'";
+                $admin_user_select = "SELECT user_id,user_name,phone_number FROM users_info WHERE user_email='$lg_email'";
                 $admin_user_query = mysqli_query($conn,$admin_user_select);
                 $admin_user_arry = mysqli_fetch_assoc($admin_user_query);
                 $admin_user_name = $admin_user_arry['user_name'];
                 $admin_user_id = $admin_user_arry['user_id'];
+                $admin_user_phone = $admin_user_arry['phone_number'];
     
-                // print_r($admin_user_arry);
+                // print_r($admin_user_phone);
                 // die();
               
                 if($arry['result'] == 1){
@@ -51,6 +52,7 @@
                     $_SESSION['admin_user_name'] = "$admin_user_name";
                     $_SESSION['admin_user_email'] = "$lg_email";
                     $_SESSION['admin_user_id'] = "$admin_user_id";
+                    $_SESSION['admin_user_phone'] = "$admin_user_phone";
 
                     $_SESSION['login_statuse'] = "Hurrah!! Login successfull";
                     header("location: beckend/adminDashbord.php");

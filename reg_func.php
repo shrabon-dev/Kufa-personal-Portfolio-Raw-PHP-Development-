@@ -12,41 +12,6 @@ $isFalse = false;
 $conn = mysqli_connect('localhost','root','','cms'); 
 $sl_db = "SELECT * FROM users_info";
 $db_query = mysqli_query($conn,$sl_db);
-// $db_query_arry = mysqli_fetch_assoc($db_query);
-
-// $incude_email =$db_query_arry['user_email'];
-
-
-
-// if($email){
-
-
-//    while($db_query_arry = mysqli_fetch_assoc($db_query)){
-//       $incude_email =$db_query_arry['user_email'];
-   
-//       if($email !== $incude_email){
-//          if(filter_var($email,FILTER_VALIDATE_EMAIL) == false){
-//             $isFalse = true;
-//             $_SESSION['email__erorr'] = "Email is invalid";
-   
-//          }
-        
-//       }else{
-//        echo  $_SESSION['email__erorr'] = "This eamil use already";
-   
-//       }
-//    }
-
-
-// }elseif(!$email){
-//    $isFalse = true;
-//   echo $_SESSION['email__erorr'] = "Please, give your email.";
-// }
-
-
-
-// die();
-
 
 if($name){
    if(ctype_alpha(str_replace(' ','',$name)) == false){
@@ -112,7 +77,7 @@ if($password){
          $isFalse = true;
          $_SESSION['password__erorr'] = "Please, give the password a-z,.";
       }else{
-         echo $pass_valid . "<br>". $password;
+         $pass_valid . "<br>". $password;
       }
     }
 $_SESSION['pass__show'] =$password;
@@ -148,6 +113,8 @@ if($isFalse){
 
    $_SESSION['registration_statuse'] = "Your registration is Successfull";
    $_SESSION['login_email_show'] = "$email";
+
+
     
    header("location: login.php");
 }

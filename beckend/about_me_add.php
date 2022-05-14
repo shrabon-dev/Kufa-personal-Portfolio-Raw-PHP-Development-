@@ -31,8 +31,8 @@ $tab_page_title = "Neptune - Admin About me";
 
                                   <!--  -->
                                   <div>
-                                 <label for="">Skill(%) : </label>
-                                 <input class="counter_icon" type="number" name="about_skill">
+                                 <label for="" class="skill">Skill : </label>
+                                 <input class="counter_icon" type="range" name="about_skill" min="1" max="100" step="10">
                                  </div>
                                     <!--  -->
                                     
