@@ -87,7 +87,7 @@
                 <label for="signUpPassword" class="form-label">Password</label>
                 <input id="show__pass" type="password" class="form-control  <?=(isset($_SESSION['password__erorr']))? "is-invalid":'';?>" id="signUpPassword" aria-describedby="signUpPassword" placeholder="Enter Password" name="password" value="<?=(isset($_SESSION['pass__show']))? $_SESSION['pass__show'] : ''?>"> 
                    <!--    An element to toggle between password visibility -->
-                        <span class="span mb-3"> <input type="checkbox" onclick="myFunction()">Show Password</span>
+                      <div class="mb-1"><span class="span mb-4"> <input type="checkbox" onclick="myFunction()">Show Password</span></div>
                <?php  
                 if(isset($_SESSION['password__erorr'])){
                 echo "<span>". $_SESSION['password__erorr'] ."</span>";

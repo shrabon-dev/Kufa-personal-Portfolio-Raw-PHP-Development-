@@ -47,8 +47,8 @@
                         <div class="col-xl-12">
                             <div class="main-menu">
                                 <nav class="navbar navbar-expand-lg">
-                                    <a href="index.html" class="navbar-brand logo-sticky-none"><img src="./frontend_page/img/logo/logo.png" alt="Logo"></a>
-                                    <a href="index.html" class="navbar-brand s-logo-none"><img src="./frontend_page/img/logo/s_logo.png" alt="Logo"></a>
+                                    <a href="index.php" class="navbar-brand logo-sticky-none"><img src="./frontend_page/img/logo/logo.png" alt="Logo"></a>
+                                    <a href="index.php" class="navbar-brand s-logo-none"><img src="./frontend_page/img/logo/s_logo.png" alt="Logo"></a>
                                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                                         data-target="#navbarNav">
                                         <span class="navbar-icon"></span>
@@ -159,8 +159,17 @@
                                                 <h3>Share On</h3>
                                             </li>
                                             <li class="blog-post-share">
-                                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                            <a href="#" 
+                                                    onclick="
+                                                        window.open(
+                                                        'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 
+                                                        'facebook-share-dialog', 
+                                                        'width=626,height=436'); 
+                                                        return false;">
+                                                 <i class="fab fa-facebook"></i>
+                                             </a>
+                                             <a href="http://www.twitter.com/share?url=http://mysite.org/foo.htm?bar=123&baz=456"><i class="fab fa-twitter"></i></a>
+                                                
                                                 <a href="#"><i class="fab fa-pinterest-p"></i></a>
                                             </li>
                                         </ul>
@@ -179,9 +188,18 @@
                                                     egestliberos dolor auctor
                                                     tellus.</p>
                                                 <div class="post-avatar-social mt-15">
-                                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                                <a href="#" 
+                                                    onclick="
+                                                        window.open(
+                                                        'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 
+                                                        'facebook-share-dialog', 
+                                                        'width=626,height=436'); 
+                                                        return false;">
+                                                 <i class="fab fa-facebook"></i>
+                                             </a>
                                                     <a href="#"><i class="fab fa-twitter"></i></a>
                                                     <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                                                    
                                                 </div>
                                             </div>
                                         </li>

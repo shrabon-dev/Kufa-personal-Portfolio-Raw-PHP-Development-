@@ -50,7 +50,7 @@ $tab_page_title = "Neptune - Admin profile";
            </td>
             <td> 
 
-            <a name="delete" class="btn btn-danger" href="../php_function/service_delete.php?id=<?=$service_list['service_id']?>">Delete</a>
+            <a id="../php_function/service_delete.php?id=<?=$service_list['service_id']?>" name="delete" class="btn btn-danger dlte_btn" >Delete</a>    
             <a name="edit" class="btn btn-primary" href="../php_function/service_edit.php?id=<?=$service_list['service_id']?>">Edit</a>
 
             </td>
@@ -68,3 +68,27 @@ $tab_page_title = "Neptune - Admin profile";
 
 
 <?php require_once '../include/footer.php'; ?>
+<script>
+  $(document).ready(function(){
+    $('.dlte_btn').click(function(){
+
+
+      Swal.fire({
+  title: 'Are you sure?',
+  text: "You won't be able to revert this!",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#d33',
+  cancelButtonColor: '#3085d6',
+  confirmButtonText: 'Yes, delete it!'
+}).then((result) => {
+  if (result.isConfirmed) {
+      
+    window.location.href = $(this).attr('id');
+
+  }
+})
+    })
+
+  })
+</script>

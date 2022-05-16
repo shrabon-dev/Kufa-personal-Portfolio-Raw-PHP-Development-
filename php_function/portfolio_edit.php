@@ -25,6 +25,10 @@ if($file_name == true){
     $portfolio_img_update_query = "UPDATE portfolios_info SET portfolio_img='$new_name' WHERE portfolio_id='$id'";
     mysqli_query($conn,$portfolio_img_update_query);
 
+    $portfolio_update_query = "UPDATE portfolios_info SET portfolio_cetagory='$portfolio_update_cetagory',
+    portfolio_title='$portfolio_title', portfolio_details='$portfolio_details', portfolio_status='$portfolio_status' WHERE portfolio_id= '$id'";
+    $portfolio_update_mysqli_query = mysqli_query($conn,$portfolio_update_query);
+
 }elseif($portfolio_update_cetagory == false){
     $_SESSION['portfolio_error'] = "Please, fill this box";
     header('location: ../beckend/portfolio_edit_form.php');

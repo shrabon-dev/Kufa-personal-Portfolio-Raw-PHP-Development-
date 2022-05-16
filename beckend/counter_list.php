@@ -50,8 +50,7 @@ $tab_page_title = "Neptune - Admin profile";
     
            </td>
             <td> 
-            <!-- <a name="delete" class="btn btn-danger" href="../php_function/counter_delete.php?id=<?=$counter_list['counter_id']?>">Delete</a> -->
-            <button class="btn btn-danger  btn_click"> Delete </button>
+            <a id="../php_function/counter_delete.php?id=<?=$counter_list['counter_id']?>" name="delete" class="btn btn-danger dlte_btn" >Delete</a>    
             <a name="edit" class="btn btn-primary" href="../php_function/counter_edit.php?id=<?=$counter_list['counter_id']?>">Edit</a>
             </td>
 
@@ -66,37 +65,31 @@ $tab_page_title = "Neptune - Admin profile";
 
 
                   
-                    <!-- /////////////  profile content end  ///////////// -->
+                    <!-- /////////////  counter content end  ///////////// -->
 
 
 <?php require_once '../include/footer.php'; ?>
-
 <script>
+  $(document).ready(function(){
+    $('.dlte_btn').click(function(){
 
-    $(document).ready(function(){
 
-      $('.btn_click').click(
-        Swal.fire({
+      Swal.fire({
   title: 'Are you sure?',
   text: "You won't be able to revert this!",
   icon: 'warning',
   showCancelButton: true,
-  confirmButtonColor: '#3085d6',
-  cancelButtonColor: '#d33',
+  confirmButtonColor: '#d33',
+  cancelButtonColor: '#3085d6',
   confirmButtonText: 'Yes, delete it!'
 }).then((result) => {
   if (result.isConfirmed) {
-    Swal.fire(
-      'Deleted!',
-      'Your file has been deleted.',
-      'success'
-    )
+      
+    window.location.href = $(this).attr('id');
+
   }
 })
-
-      )
-
-        
     })
 
+  })
 </script>

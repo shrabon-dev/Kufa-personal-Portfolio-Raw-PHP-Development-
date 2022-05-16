@@ -49,8 +49,8 @@
                         <div class="col-xl-12">
                             <div class="main-menu">
                                 <nav class="navbar navbar-expand-lg">
-                                    <a href="index.html" class="navbar-brand logo-sticky-none"><img src="./frontend_page/img/logo/logo.png" alt="Logo"></a>
-                                    <a href="index.html" class="navbar-brand s-logo-none"><img src="./frontend_page/img/logo/s_logo.png" alt="Logo"></a>
+                                    <a href="index.php" class="navbar-brand logo-sticky-none"><img src="./frontend_page/img/logo/logo.png" alt="Logo"></a>
+                                    <a href="index.php" class="navbar-brand s-logo-none"><img src="./frontend_page/img/logo/s_logo.png" alt="Logo"></a>
                                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                                         data-target="#navbarNav">
                                         <span class="navbar-icon"></span>
@@ -130,15 +130,15 @@ $owner_name_show = mysqli_fetch_assoc( mysqli_query($conn,$settings_show_select_
 <?php
                       
 $settings_show_owner_details_select_query = "SELECT settings_value FROM settings_info WHERE settings_name='Owner_Details'";
-mysqli_query($conn,$settings_show_select_query);
+mysqli_query($conn,$settings_show_owner_details_select_query);
 $owner_details_show = mysqli_fetch_assoc( mysqli_query($conn,$settings_show_owner_details_select_query))['settings_value'];
 
 ?>
                      <?php
                       
                       $settings_show_about_details_select_query = "SELECT settings_value FROM settings_info WHERE settings_name='About_Details'";
-                      mysqli_query($conn,$settings_show_select_query);
-                      $about_details_show = mysqli_fetch_assoc( mysqli_query($conn,$settings_show_owner_details_select_query))['settings_value'];
+                      mysqli_query($conn,$settings_show_about_details_select_query);
+                      $about_details_show = mysqli_fetch_assoc( mysqli_query($conn,$settings_show_about_details_select_query))['settings_value'];
                       
                       ?>
 <!-- php code end -->
@@ -413,7 +413,7 @@ $owner_details_show = mysqli_fetch_assoc( mysqli_query($conn,$settings_show_owne
 
                         <div class="col-xl-2">
                             <div class="single-brand">
-                                <img style="width: 200px; height:150px;" src="./beckend/uploads/sponsar/<?=$sponsar_value['sponsar_img']?>" alt="img">
+                                <img style="width: 120px; height:100px;" src="./beckend/uploads/sponsar/<?=$sponsar_value['sponsar_img']?>" alt="img">
                             </div>
                         </div>
                         <?php endforeach; ?>

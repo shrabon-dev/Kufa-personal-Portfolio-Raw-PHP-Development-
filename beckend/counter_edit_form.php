@@ -6,6 +6,13 @@ $tab_page_title = "Neptune - Admin profile";
 
 <!-- /////////////  profile content start  ///////////// -->
 
+<?php  
+$id = $_SESSION['edit_id'];
+ $counter_show_query = "SELECT * FROM counter_info WHERE counter_id='$id'";
+ $counter_mqsli_query = mysqli_query($conn,$counter_show_query);
+ $counter_mqsli_query_arry = mysqli_fetch_assoc($counter_mqsli_query);
+?>
+
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -19,14 +26,14 @@ $tab_page_title = "Neptune - Admin profile";
                           <div class="form_section">
                              <form class="profile_form_set_info counters_add_form" action="../php_function/counter_edit_from_fun.php" method="post">
                                  <label for="">counter Title : </label>
-                                 <input type="text" name="counter_title">
+                                 <input type="text" name="counter_title" value="<?=$counter_mqsli_query_arry['counter_title']?>">
                                   <!--  -->
 
                                      
                                   <!--  -->
                                  <div>
                                  <label for="">counter Icon : </label>
-                                 <input class="counter_icon" type="text" name="counter_icon">
+                                 <input class="counter_icon" type="text" name="counter_icon"  value="<?=$counter_mqsli_query_arry['counter_icon']?>">
                                  </div>
 
                                        <!--  -->
@@ -52,7 +59,7 @@ $tab_page_title = "Neptune - Admin profile";
                                   <!--  -->
                                  <div>
                                  <label for="">counter Amont : </label>
-                                 <input type="number" name="counter_amount">
+                                 <input type="number" name="counter_amount" value="<?=$counter_mqsli_query_arry['counter_amount']?>">
 
                                  </div>
                                  <div><?=(isset( $_SESSION['error_desc']))?  $_SESSION['error_desc']:''?><?php unset( $_SESSION['error_desc']);?></div>
@@ -60,8 +67,8 @@ $tab_page_title = "Neptune - Admin profile";
                                  <div>
                                  <label for="">counter Status : </label>
                                  <select name="counter_status" id="">
-                                     <option value="active">Active</option>
-                                     <option value="diactive">Diactive</option>
+                                     <option value="active" <?=($counter_mqsli_query_arry['counter_status']=='active')? 'Selected':''?>>Active</option>
+                                     <option value="diactive" <?=($counter_mqsli_query_arry['counter_status']=='diactive')? 'Selected':''?>>Diactive</option>
                                  </select>
                                  </div>
                                  <!--  -->

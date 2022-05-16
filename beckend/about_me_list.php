@@ -50,7 +50,7 @@ $tab_page_title = "Neptune - About List";
            </td>
             <td> 
 
-            <a name="delete" class="btn btn-danger alt_click" href="../php_function/about_delete.php?id=<?=$about_list['about_id']?>">Delete</a>
+            <a id="../php_function/about_delete.php?id=<?=$about_list['about_id']?>" name="delete" class="btn btn-danger dlte_btn" >Delete</a>         
             <a name="edit" class="btn btn-primary" href="../beckend/about_edit_form.php?id=<?=$about_list['about_id']?>">Edit</a>
 
             </td>
@@ -72,10 +72,25 @@ $tab_page_title = "Neptune - About List";
 
 <script>
   $(document).ready(function(){
-   Swal.fire(
-  'Good job!',
-  'You clicked the button!',
-  'success'
-)
+    $('.dlte_btn').click(function(){
+
+
+      Swal.fire({
+  title: 'Are you sure?',
+  text: "You won't be able to revert this!",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#d33',
+  cancelButtonColor: '#3085d6',
+  confirmButtonText: 'Yes, delete it!'
+}).then((result) => {
+  if (result.isConfirmed) {
+      
+    window.location.href = $(this).attr('id');
+
+  }
+})
+    })
+
   })
 </script>
