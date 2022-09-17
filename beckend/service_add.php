@@ -116,8 +116,6 @@ $(document).ready(function(){
 
        $('.set_icon').val($(this).attr("id"));
 
-  
-
    })
 
 

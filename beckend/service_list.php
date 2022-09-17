@@ -1,5 +1,5 @@
 <?php  
-$tab_page_title = "Neptune - Admin profile";
+$tab_page_title = "Neptune - Admin Services";
 ?> 
 <?php require_once '../include/header.php'; ?>
 
