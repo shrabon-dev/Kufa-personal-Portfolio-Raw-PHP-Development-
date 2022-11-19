@@ -35,8 +35,8 @@ $tab_page_title = "Neptune - portfolio List";
             <td><?=$i++?></td>
             <td><?=$portfolio_list['portfolio_cetagory']?></td>
             <td><?=$portfolio_list['portfolio_title']?></td>
-            <td style="overflow-y: scroll;height:40px"><?=$portfolio_list['portfolio_details']?></td>
-            <td><img style="width: 80px; height: 20em !important;  overflow: scroll;" src="../beckend/uploads/portfolio/<?=$portfolio_list['portfolio_img']?>" alt="<?=$portfolio_list['portfolio_img']?>"> </td>
+            <td style="overflow-y: scroll;height:40px !important"><?=$portfolio_list['portfolio_details']?></td>
+            <td><img style="width: 80px; height: 5em !important;  overflow: scroll;" src="../beckend/uploads/portfolio/<?=$portfolio_list['portfolio_img']?>" alt="<?=$portfolio_list['portfolio_img']?>"> </td>
             <td>
                 
                <?php if($portfolio_list['portfolio_status']=="active"):?>

@@ -87,7 +87,7 @@ $id = $_SESSION['testmonial_edit_id'];
                                   <!--  -->
                                  <div><?=(isset( $_SESSION['error_include']))?  $_SESSION['error_include']:''?><?php unset( $_SESSION['error_include']);?></div>
 
-                                 <button type="submit" name="btn_testimonial_add" class="mt-2">Add Testimonial</button>
+                                 <button type="submit" name="btn_testimonial_add" class="mt-4">Update</button>
                                 </form>
                           </div>
 

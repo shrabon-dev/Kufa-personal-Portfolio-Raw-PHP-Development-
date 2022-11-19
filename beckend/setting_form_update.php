@@ -35,7 +35,7 @@ $tab_page_title = "Neptune - Admin About me";
 
                                 <?php foreach($settings_mysqli_query as $settings_velue): ?>     
                                 <div>
-                                <label for=""><?=$settings_velue['settings_name'];?> : </label>
+                                <label for=""><?=str_replace('_',' ',$settings_velue['settings_name'])?> : </label>
                                 <input type="text" name="<?=$settings_velue['settings_name'];?>" value="<?=$settings_velue['settings_value'];?>">
                                 </div>
 
@@ -47,7 +47,7 @@ $tab_page_title = "Neptune - Admin About me";
  
 
                                   <!--  -->
-                                 <button type="submit" name="btn_settings_edit" class="mt-2">Save settings</button>
+                                 <button type="submit" name="btn_settings_edit" class="mt-5">Save All</button>
                                 </form>
                           </div>
 

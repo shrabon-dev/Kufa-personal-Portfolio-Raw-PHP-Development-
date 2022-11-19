@@ -16,7 +16,7 @@ $tab_page_title = "Neptune - Testimonial List";
 <!-- php code end -->
 
 
-      <table class="table">
+<table class="table">
       <thead class="table-dark">
           <tr>
              <th>Sl No.</th>
@@ -35,8 +35,8 @@ $tab_page_title = "Neptune - Testimonial List";
             <td><?=$i++?></td>
             <td><?=$testimonial_list['testimonial_name']?></td>
             <td><?=$testimonial_list['testimonial_position']?></td>
-            <td style="overflow-y: scroll;height:40px"><?=$testimonial_list['testimonial_details']?></td>
-            <td><img style="width: 80px;height:80px;" src="../beckend/uploads/testimonial/<?=$testimonial_list['testimonial_img']?>" alt="<?=$testimonial_list['testimonial_img']?>"> </td>
+            <td style="overflow-y: scroll;"><?=$testimonial_list['testimonial_details']?></td>
+            <td ><img style="width: 80px;height:80px !important" src="../beckend/uploads/testimonial/<?=$testimonial_list['testimonial_img']?>" alt="<?=$testimonial_list['testimonial_img']?>"> </td>
             <td>
                 
                <?php if($testimonial_list['testimonial_status']=="active"):?>

@@ -33,6 +33,7 @@ $tab_page_title = "Neptune - Admin About me";
                                  <label for="">About Title : </label>
                                  <input type="text" name="about_edit_title" value="<?=$about_mysqli_array_query_for_show['about_title'];?>">
                                   <!--  -->
+                                  <input hidden type="text" name="get_id" value="<?=$id?>">
 
                                      
                                   <!--  -->
@@ -62,7 +63,7 @@ $tab_page_title = "Neptune - Admin About me";
                                   <!--  -->
                                  <div><?=(isset( $_SESSION['error_include']))?  $_SESSION['error_include']:''?><?php unset( $_SESSION['error_include']);?></div>
 
-                                 <button type="submit" name="btn_about_add" class="mt-2">About Add</button>
+                                 <button type="submit" name="btn_about_add" class="mt-2">Update</button>
                                 </form>
                           </div>
 

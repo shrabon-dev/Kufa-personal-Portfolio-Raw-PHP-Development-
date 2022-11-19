@@ -16,7 +16,14 @@ move_uploaded_file($file_tmp_name,$upload_location);
 
 $status_of_update_sponsar = $_POST['sponsar_status'];
 
-$sponsar_list_update_query = "UPDATE sponsars SET sponsar_img = '$new_name',sponsar_status = '$status_of_update_sponsar' WHERE sponsar_id='$id'";
+if($file_name){
+    $sponsar_list_update_query = "UPDATE sponsars SET sponsar_img = '$new_name',sponsar_status = '$status_of_update_sponsar' WHERE sponsar_id='$id'";
+
+}else{
+    $sponsar_list_update_query = "UPDATE sponsars SET sponsar_status = '$status_of_update_sponsar' WHERE sponsar_id='$id'";
+
+}
+
 
 $sponsar_list_update_mysqli_query = mysqli_query($conn,$sponsar_list_update_query);
 

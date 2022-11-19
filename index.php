@@ -41,6 +41,61 @@
         </div> -->
         <!-- preloader-end -->
 
+        <!-- php code start -->
+<?php
+                    $conn = mysqli_connect('localhost','root','','cms');     
+                        
+                    $settings_show_select_query = "SELECT settings_value FROM settings_info WHERE settings_name='Owner_Name'";
+                    mysqli_query($conn,$settings_show_select_query);
+                    $owner_name_show = mysqli_fetch_assoc( mysqli_query($conn,$settings_show_select_query))['settings_value'];
+
+?>
+
+<?php
+                      
+                    $settings_show_owner_details_select_query = "SELECT settings_value FROM settings_info WHERE settings_name='Owner_Details'";
+                    mysqli_query($conn,$settings_show_owner_details_select_query);
+                    $owner_details_show = mysqli_fetch_assoc( mysqli_query($conn,$settings_show_owner_details_select_query))['settings_value'];
+
+?>
+                     <?php
+                      
+                      $settings_show_about_details_select_query = "SELECT settings_value FROM settings_info WHERE settings_name='About_Details'";
+                      mysqli_query($conn,$settings_show_about_details_select_query);
+                      $about_details_show = mysqli_fetch_assoc( mysqli_query($conn,$settings_show_about_details_select_query))['settings_value'];
+                      
+                      ?>
+<!-- php code end -->
+<!-- php code start -->
+<?php
+  
+                      $Owner_Address_select_query = "SELECT settings_value FROM settings_info WHERE settings_name='Owner_Address'";
+                      mysqli_query($conn,$settings_show_select_query);
+                      $owner_address_show = mysqli_fetch_assoc( mysqli_query($conn,$Owner_Address_select_query))['settings_value'];
+                      
+                      ?>
+                      
+                      <?php
+                                            
+                      $settings_show_footer_details_select_query = "SELECT settings_value FROM settings_info WHERE settings_name='Footer_details'";
+                      mysqli_query($conn,$settings_show_select_query);
+                      $footer_details_show = mysqli_fetch_assoc( mysqli_query($conn,$settings_show_footer_details_select_query))['settings_value'];
+                      
+                      
+                      $settings_show_Owner_Phone_select_query = "SELECT settings_value FROM settings_info WHERE settings_name='Owner_Phone'";
+                      mysqli_query($conn,$settings_show_select_query);
+                      $owner_phone_show = mysqli_fetch_assoc( mysqli_query($conn,$settings_show_Owner_Phone_select_query))['settings_value'];
+                      
+                      
+                      
+                      $settings_show_owner_email_select_query = "SELECT settings_value FROM settings_info WHERE settings_name='Owner_email'";
+                      mysqli_query($conn,$settings_show_select_query);
+                      $Owner_email_show = mysqli_fetch_assoc( mysqli_query($conn,$settings_show_owner_email_select_query))['settings_value'];
+                      
+                      
+                      ?>
+                      <!-- php code end -->
+
         <!-- header-start -->
         <header>
             <div id="header-sticky" class="transparent-header">
@@ -90,16 +145,15 @@
                 <div class="side-info mb-30">
                     <div class="contact-list mb-30">
                         <h4>Office Address</h4>
-                        <p>123/A, Miranda City Likaoli
-                            Prikano, Dope</p>
+                        <p><?=$owner_address_show?></p>
                     </div>
                     <div class="contact-list mb-30">
                         <h4>Phone Number</h4>
-                        <p>+0989 7876 9865 9</p>
+                        <p><?=$owner_phone_show?></p>
                     </div>
                     <div class="contact-list mb-30">
                         <h4>Email Address</h4>
-                        <p>info@example.com</p>
+                        <p><?=$Owner_email_show?></p>
                     </div>
                 </div>
                 <div class="social-icon-right mt-20">
@@ -117,31 +171,7 @@
         <!-- main-area -->
         <main>
 
-<!-- php code start -->
-<?php
- $conn = mysqli_connect('localhost','root','','cms');
-                      
-$settings_show_select_query = "SELECT settings_value FROM settings_info WHERE settings_name='Owner_Name'";
-mysqli_query($conn,$settings_show_select_query);
-$owner_name_show = mysqli_fetch_assoc( mysqli_query($conn,$settings_show_select_query))['settings_value'];
 
-?>
-
-<?php
-                      
-$settings_show_owner_details_select_query = "SELECT settings_value FROM settings_info WHERE settings_name='Owner_Details'";
-mysqli_query($conn,$settings_show_owner_details_select_query);
-$owner_details_show = mysqli_fetch_assoc( mysqli_query($conn,$settings_show_owner_details_select_query))['settings_value'];
-
-?>
-                     <?php
-                      
-                      $settings_show_about_details_select_query = "SELECT settings_value FROM settings_info WHERE settings_name='About_Details'";
-                      mysqli_query($conn,$settings_show_about_details_select_query);
-                      $about_details_show = mysqli_fetch_assoc( mysqli_query($conn,$settings_show_about_details_select_query))['settings_value'];
-                      
-                      ?>
-<!-- php code end -->
 
             <!-- banner-area -->
             <section id="home" class="banner-area banner-bg fix">
@@ -425,35 +455,6 @@ $owner_details_show = mysqli_fetch_assoc( mysqli_query($conn,$settings_show_owne
 
             <!-- contact-area -->
 
-<!-- php code start -->
-<?php
-                      
-$Owner_Address_select_query = "SELECT settings_value FROM settings_info WHERE settings_name='Owner_Address'";
-mysqli_query($conn,$settings_show_select_query);
-$owner_address_show = mysqli_fetch_assoc( mysqli_query($conn,$Owner_Address_select_query))['settings_value'];
-
-?>
-
-<?php
-                      
-$settings_show_footer_details_select_query = "SELECT settings_value FROM settings_info WHERE settings_name='Footer_details'";
-mysqli_query($conn,$settings_show_select_query);
-$footer_details_show = mysqli_fetch_assoc( mysqli_query($conn,$settings_show_footer_details_select_query))['settings_value'];
-
-
-$settings_show_Owner_Phone_select_query = "SELECT settings_value FROM settings_info WHERE settings_name='Owner_Phone'";
-mysqli_query($conn,$settings_show_select_query);
-$owner_phone_show = mysqli_fetch_assoc( mysqli_query($conn,$settings_show_Owner_Phone_select_query))['settings_value'];
-
-
-
-$settings_show_owner_email_select_query = "SELECT settings_value FROM settings_info WHERE settings_name='Owner_email'";
-mysqli_query($conn,$settings_show_select_query);
-$Owner_email_show = mysqli_fetch_assoc( mysqli_query($conn,$settings_show_owner_email_select_query))['settings_value'];
-
-
-?>
-<!-- php code end -->
 
 
             <section id="contact" class="contact-area primary-bg pt-120 pb-120">

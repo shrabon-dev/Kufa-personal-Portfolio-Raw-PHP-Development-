@@ -30,7 +30,7 @@ $tab_page_title = "Neptune - Admin profile";
 
             <tr>
             <td><?=$i++?></td>
-            <td><img style="width: 80px;height:80px;" src="../beckend/uploads/sponsar/<?=$sponsar_list['sponsar_img']?>"></td>
+            <td><img style="width: 80px;height:40px;" src="../beckend/uploads/sponsar/<?=$sponsar_list['sponsar_img']?>"></td>
             <td>
                 
                <?php if($sponsar_list['sponsar_status']=="active"):?>
