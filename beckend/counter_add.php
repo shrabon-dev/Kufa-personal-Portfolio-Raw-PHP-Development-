@@ -31,22 +31,19 @@ $tab_page_title = "Neptune - Admin profile";
 
                                        <!--  -->
                                        <!-- php code start -->
-                                       <div class="card m-1" style="background-color:#dbdbdb; border-color:darkblue;">
-                                  
-                                  <div class="card-body">
-                                    <h4 class="card-title">Choose Your Icon</h4>
-                                    <div class="over_flow_hiden" style="overflow-y:scroll;height:180px;">
-                                    <?php foreach($fonts as $icons): ?>
-                                       <span class="badge badge-dark m-1 icon_slc_btn" id="<?=$icons?>">
-                                       <i class="fa-1x <?=$icons?>"></i>
-                                       </span>
-                                       <?php endforeach;?>
-                                       </div>
-                                  </div>
-                                </div>
-                             
-
-                                       <!-- php code end -->
+                                      <div class="card m-1" style="background-color:#dbdbdb; border-color:darkblue;">
+                                        <div class="card-body">
+                                          <h4 class="card-title">Choose Your Icon</h4>
+                                           <div class="over_flow_hiden" style="overflow-y:scroll;height:180px;">
+                                              <?php foreach($fonts as $icons): ?>
+                                                  <span class="badge badge-dark m-1 icon_slc_btn" id="<?=$icons?>">
+                                                  <i class="fa-1x <?=$icons?>"></i>
+                                              </span>
+                                            <?php endforeach;?>
+                                         </div>
+                                        </div>
+                                      </div>
+                                     <!-- php code end -->
 
 
                                   <!--  -->

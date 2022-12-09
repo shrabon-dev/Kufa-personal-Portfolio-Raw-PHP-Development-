@@ -41,6 +41,9 @@ $tab_page_title = "Neptune - Admin profile";
                                  <input class="set_icon" type="text" name="service_icon" value="<?=$mysqli_fetch_array['service_icon']?>">
                                  </div>
                                  <!-- php start -->
+                                        <!--  -->
+                              
+                                 <!-- php start -->
                                  <?php
                                  require_once "font_awesome.php";
                                    
@@ -85,7 +88,7 @@ $tab_page_title = "Neptune - Admin profile";
                                   <!--  -->
                                  <div><?=(isset( $_SESSION['error_include']))?  $_SESSION['error_include']:''?><?php unset( $_SESSION['error_include']);?></div>
 
-                                 <button type="submit" name="btn_service_add" class="mt-2">Add Service</button>
+                                 <button type="submit" name="btn_service_add" class="mt-2">Update Service</button>
                                 </form>
                           </div>
 

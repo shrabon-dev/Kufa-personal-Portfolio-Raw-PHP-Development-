@@ -29,6 +29,20 @@
     </head>
     <body class="theme-bg">
 
+            <!--Start of Tawk.to Script-->
+            <script type="text/javascript">
+            var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+            (function(){
+            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+            s1.async=true;
+            s1.src='https://embed.tawk.to/6392bc69b0d6371309d368bc/1gjqivvrj';
+            s1.charset='UTF-8';
+            s1.setAttribute('crossorigin','*');
+            s0.parentNode.insertBefore(s1,s0);
+            })();
+            </script>
+        <!--End of Tawk.to Script-->
+
         <!-- preloader -->
         <!-- <div id="preloader">
             <div id="loading-center">
@@ -91,6 +105,11 @@
                       $settings_show_owner_email_select_query = "SELECT settings_value FROM settings_info WHERE settings_name='Owner_email'";
                       mysqli_query($conn,$settings_show_select_query);
                       $Owner_email_show = mysqli_fetch_assoc( mysqli_query($conn,$settings_show_owner_email_select_query))['settings_value'];
+                      
+
+                      $social_link = "SELECT * FROM socials";
+           
+                      $social_link_data =  mysqli_query($conn,$social_link);
                       
                       
                       ?>
@@ -157,10 +176,9 @@
                     </div>
                 </div>
                 <div class="social-icon-right mt-20">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                     <?php foreach($social_link_data as $data):?>
+                    <a href="<?=$data['name']?>"><i class="<?=$data['icon']?>"></i></a>
+                    <?php endforeach ?>
                 </div>
             </div>
             <div class="offcanvas-overly"></div>
@@ -184,10 +202,9 @@
                                 <p class="wow fadeInUp" data-wow-delay="0.6s"><?=$owner_details_show;?></p>
                                 <div class="banner-social wow fadeInUp" data-wow-delay="0.8s">
                                     <ul>
-                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
+                                            <?php foreach($social_link_data as $data):?>
+                                            <li><a href="<?=$data['name']?>"><i class="<?=$data['icon']?>"></i></a></li>
+                                            <?php endforeach ?>
                                     </ul>
                                 </div>
                                 <a href="#" class="btn wow fadeInUp" data-wow-delay="1s">SEE PORTFOLIOS</a>

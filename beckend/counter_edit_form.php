@@ -77,7 +77,7 @@ $id = $_SESSION['edit_id'];
                                   <!--  -->
                                  <div><?=(isset( $_SESSION['error_include']))?  $_SESSION['error_include']:''?><?php unset( $_SESSION['error_include']);?></div>
 
-                                 <button type="submit" name="btn_counter_add" class="mt-2">Counter Add</button>
+                                 <button type="submit" name="btn_counter_add" class="mt-2">Update Counter</button>
                                 </form>
                           </div>
 

@@ -175,7 +175,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="avatar-post mt-70 mb-60">
+                                <!-- <div class="avatar-post mt-70 mb-60">
                                     <ul>
                                         <li>
                                             <div class="post-avatar-img">
@@ -204,7 +204,7 @@
                                             </div>
                                         </li>
                                     </ul>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>

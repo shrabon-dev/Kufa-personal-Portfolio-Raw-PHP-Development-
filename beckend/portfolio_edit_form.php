@@ -86,7 +86,7 @@ $id = $_SESSION['portfolio_edit_id'];
                                   <!--  -->
                                  <div><?=(isset( $_SESSION['error_include']))?  $_SESSION['error_include']:''?><?php unset( $_SESSION['error_include']);?></div>
 
-                                 <button type="submit" name="btn_portfolio_add" class="mt-2">Add portfolio</button>
+                                 <button type="submit" name="btn_portfolio_add" class="mt-2">Update portfolio</button>
                                 </form>
                           </div>
 

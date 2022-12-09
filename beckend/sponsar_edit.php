@@ -39,7 +39,7 @@ $tab_page_title = "Neptune - Sponsar Edit";
                                  
                                  </select>
                                  
-                                 <button type="submit" name="btn_sponsar_add" class="mt-5">Add Sponsar</button>
+                                 <button type="submit" name="btn_sponsar_add" class="mt-5">Update Sponsar</button>
                                 </form>
                           </div>
 

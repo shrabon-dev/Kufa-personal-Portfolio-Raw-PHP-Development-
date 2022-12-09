@@ -68,8 +68,13 @@ $profile_photo_name_db = $_SESSION['profile_photo_name_db'];
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
 </head>
 <body>
+
+
+
+
 
     <div class="app align-content-stretch d-flex flex-wrap">
         <div class="app-sidebar">
@@ -92,6 +97,9 @@ $profile_photo_name_db = $_SESSION['profile_photo_name_db'];
                     <li class="<?=($current_page == 'adminDashbord.php')? 'active-page':''?>">
                         <a href="adminDashbord.php" class="active"><i class="material-icons-two-tone">dashboard</i>Dashboard</a>
                     </li>
+                    <li>
+                        <a href="../index.php" target="_blank"><i class="material-icons-two-tone">home</i>Visit Site</a>
+                    </li>
 
 <!-- php code of mailbox start  -->
 
@@ -110,11 +118,12 @@ $messages_amount = mysqli_fetch_assoc($messages_mysqli_query)['messages_amount']
                     <li class="<?=($current_page == 'profile.php')? 'active-page':''?>">
                         <a href="profile.php"><i class="material-icons-two-tone">account_circle</i>Admin Profile</a>
                     </li>
-                    <li>
-                        <a href="../index.php" target="_blank"><i class="material-icons-two-tone">home</i>Visit Site</a>
-                    </li>
+            
                     <li>
                         <a href="../beckend/setting_form_update.php"><i class="material-icons-two-tone">settings</i>Setting</a>
+                    </li>
+                    <li>
+                        <a href="../beckend/add-social-link.php"><i class="material-icons-two-tone">link</i>Social Link</a>
                     </li>
                     <li class="">
                         <a href=""><i class="material-icons-two-tone">person</i>About me<i class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
